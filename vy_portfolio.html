@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vy (Valerie) Le — Main Character Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:#FDF8F2;color:#1E1208;overflow-x:hidden;}
+:root{
+  --coral:#E07A52;--gold:#E8B84B;--blue:#5AA3C8;--green:#6AAB7B;
+  --dark:#1E1208;--warm:#FDF8F2;--card:#fff;--border:#E8DDD4;
+  --muted:#8A7060;--deep:#120A04;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97);backdrop-filter:blur(12px);padding:0 40px;display:flex;justify-content:space-between;align-items:stretch;border-bottom:0.5px solid rgba(232,184,75,0.18);}
+.nav-logo{font-size:15px;font-weight:900;color:#FDF8F2;letter-spacing:1px;display:flex;align-items:center;padding:16px 0;font-family:'Outfit',sans-serif;}
+.nav-logo span{color:var(--coral);}
+.nav-links{display:flex;gap:0;align-items:stretch;}
+.nav-links a{font-size:12px;color:#8A6A50;text-decoration:none;font-weight:500;transition:all 0.2s;letter-spacing:0.5px;padding:0 16px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-links a:hover{color:#FDF8F2;border-bottom-color:var(--coral);}
+.nav-links a.active{color:#FDF8F2;border-bottom-color:var(--coral);}
+.nav-resume{background:var(--coral)!important;color:#fff!important;padding:10px 18px!important;margin:10px 0 10px 12px;border-radius:8px!important;font-size:11px;font-weight:700;letter-spacing:0.5px;border-bottom:none!important;}
+.nav-resume:hover{background:#C85E38!important;border-bottom:none!important;}
+.nav-open{display:flex;align-items:center;gap:7px;padding:0 0 0 20px;border-left:0.5px solid rgba(255,255,255,0.06);margin-left:8px;}
+.nav-open-dot{width:8px;height:8px;border-radius:50%;background:#6AAB7B;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.nav-open-text{font-size:11px;color:#6AAB7B;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 48px 64px;position:relative;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(224,122,82,0.07) 0%,transparent 65%);pointer-events:none;}
+.hero-badge{background:rgba(224,122,82,0.12);border:0.5px solid rgba(224,122,82,0.35);color:var(--coral);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;border-radius:20px;margin-bottom:24px;font-weight:700;position:relative;}
+.hero-title{font-size:clamp(42px,7vw,78px);font-weight:900;color:var(--warm);line-height:1.0;letter-spacing:-2px;margin-bottom:6px;position:relative;}
+.hero-title .a{color:var(--coral);}
+.hero-title .g{color:var(--gold);}
+.hero-sub{font-family:'Lora',serif;font-style:italic;color:#9A7A60;font-size:16px;max-width:500px;line-height:1.65;margin-bottom:28px;position:relative;}
+.hero-cta{background:var(--coral);color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:15px 48px;border-radius:40px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;margin-bottom:52px;animation:hpulse 2.5s infinite;position:relative;}
+@keyframes hpulse{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
+.hero-cta:hover{background:#C85E38;animation:none;}
+.hero-stats{display:flex;gap:0;border:0.5px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;max-width:620px;width:100%;position:relative;}
+.hs{flex:1;padding:16px 10px;text-align:center;border-right:0.5px solid rgba(255,255,255,0.06);cursor:pointer;transition:background 0.2s;}
+.hs:last-child{border-right:none;}
+.hs:hover{background:rgba(224,122,82,0.08);}
+.hs-n{font-size:22px;font-weight:900;color:var(--gold);line-height:1;}
+.hs-l{font-size:9px;color:#9A7055;text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+
+/* SECTIONS */
+.sec-wrap{padding:88px 0;}
+.sec-wrap.alt{background:#FAF5EF;}
+.sec-inner{max-width:1080px;margin:0 auto;padding:0 48px;}
+.s-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:8px;}
+.s-title{font-size:38px;font-weight:800;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;margin-bottom:8px;}
+.s-sub{font-family:'Lora',serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:40px;line-height:1.6;max-width:560px;}
+
+/* ABOUT */
+.char-card{display:flex;gap:24px;align-items:flex-start;background:var(--card);border:0.5px solid var(--border);border-radius:18px;padding:28px 32px;margin-bottom:20px;}
+.char-av{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;flex-shrink:0;}
+.char-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:5px;}
+.char-name{font-size:26px;font-weight:800;color:var(--dark);letter-spacing:-0.5px;margin-bottom:8px;}
+.char-bio{font-family:'Lora',serif;font-style:italic;color:#6A5545;font-size:14px;line-height:1.75;}
+.c-stats{background:var(--dark);border-radius:14px;padding:16px 20px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:4px;}
+.cs-item{text-align:center;cursor:pointer;}
+.cs-n{font-size:17px;font-weight:900;color:var(--gold);transition:color 0.2s;line-height:1.1;}
+.cs-item:hover .cs-n{color:var(--coral);}
+.cs-l{font-size:8px;color:#9A7055;text-transform:uppercase;letter-spacing:0.8px;margin-top:3px;}
+.adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.adv-btn{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:18px 16px;cursor:pointer;text-align:left;transition:all 0.2s;display:flex;flex-direction:column;gap:5px;text-decoration:none;}
+.adv-btn:hover{border-color:var(--coral);background:#FFF5F0;transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,122,82,0.09);}
+.adv-icon{font-size:22px;}
+.adv-t{font-size:13px;font-weight:700;color:var(--dark);}
+.adv-s{font-size:11px;color:var(--muted);line-height:1.3;}
+.adv-st{font-size:10px;color:var(--coral);font-weight:700;margin-top:2px;}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:12px;}
+.exp-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:22px 26px;display:grid;grid-template-columns:12px 1fr;gap:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
+.exp-card.visible{opacity:1;transform:translateY(0);}
+.exp-card:hover{border-color:var(--coral);transform:translateX(4px);}
+.exp-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0;}
+.exp-co{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:2px;}
+.exp-role{font-size:12px;font-weight:600;color:#6A5545;margin-bottom:3px;}
+.exp-loc{font-size:11px;color:var(--muted);margin-bottom:10px;}
+.exp-impacts{display:flex;flex-direction:column;gap:4px;}
+.exp-impact{font-size:12px;color:#4A3A2A;line-height:1.45;padding-left:14px;position:relative;}
+.exp-impact::before{content:'→';position:absolute;left:0;color:var(--coral);font-weight:700;}
+
+/* PROJECTS */
+.proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.pf-btn{background:var(--card);border:0.5px solid var(--border);color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;padding:7px 15px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;}
+.pf-btn:hover,.pf-btn.active{background:var(--coral);color:#fff;border-color:var(--coral);}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.proj-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
+.proj-card.visible{opacity:1;transform:translateY(0);}
+.proj-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,122,82,0.07);}
+.proj-cat{font-size:9px;color:var(--coral);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.proj-name{font-size:12px;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:6px;}
+.proj-tools{font-size:10px;color:var(--muted);line-height:1.5;}
+
+/* SKILLS */
+.skills-dark{background:var(--dark);border-radius:20px;padding:40px;}
+.sg{margin-bottom:28px;}
+.sg:last-child{margin-bottom:0;}
+.sg-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8A6A50;margin-bottom:12px;font-weight:700;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.1);color:#C4A882;font-size:12px;font-weight:500;padding:6px 14px;border-radius:8px;transition:all 0.2s;cursor:default;}
+.chip:hover{background:rgba(224,122,82,0.12);border-color:var(--coral);color:var(--coral);}
+.chip.hot{border-color:rgba(232,184,75,0.35);color:var(--gold);background:rgba(232,184,75,0.07);}
+
+/* DREAM */
+.dream-box{background:var(--dark);border-radius:20px;padding:52px 48px;text-align:center;position:relative;overflow:hidden;}
+.dream-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(224,122,82,0.06),transparent 60%);pointer-events:none;}
+.dream-q{font-family:'Lora',serif;font-style:italic;font-size:21px;color:var(--warm);line-height:1.65;max-width:620px;margin:0 auto 32px;position:relative;}
+.dream-open{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9A7055;font-weight:700;margin-bottom:16px;}
+.dream-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.dream-item{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.07);border-radius:12px;padding:20px 16px;}
+.di-icon{font-size:22px;margin-bottom:8px;}
+.di-text{font-size:12px;color:#B4906A;line-height:1.5;}
+
+/* TRAITS */
+.traits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.trait{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;transition:all 0.2s;opacity:0;transform:translateY(14px);}
+.trait.visible{opacity:1;transform:translateY(0);}
+.trait:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,122,82,0.07);}
+.trait-icon{font-size:24px;margin-bottom:8px;}
+.trait-name{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.trait-desc{font-size:11px;color:var(--muted);line-height:1.45;}
+
+/* WORLD */
+.world-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.world-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:24px;}
+.wc-icon{font-size:26px;margin-bottom:10px;}
+.wc-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.wc-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:12px;}
+.state-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.sc{background:#FFF5F0;border:0.5px solid #F5C4AD;color:#C05A30;font-size:9px;padding:3px 8px;border-radius:5px;font-weight:600;}
+.place-row{display:flex;gap:7px;flex-wrap:wrap;}
+.place-pill{background:#EAF3FA;border:0.5px solid #B8D9EE;color:#3A6A88;font-size:11px;padding:5px 11px;border-radius:20px;font-weight:500;}
+
+/* CONTACT */
+.contact-wrap{background:var(--deep);padding:88px 48px;}
+.contact-inner{max-width:680px;margin:0 auto;text-align:center;}
+.c-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9A7055;font-weight:700;margin-bottom:14px;}
+.c-title{font-size:40px;font-weight:900;color:var(--warm);letter-spacing:-1.5px;line-height:1.05;margin-bottom:10px;}
+.c-title span{color:var(--coral);}
+.c-sub{font-family:'Lora',serif;font-style:italic;color:#7A5A40;font-size:15px;margin-bottom:32px;line-height:1.65;}
+.topics-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9A7055;font-weight:700;margin-bottom:14px;}
+.topics{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px;}
+.topic{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.09);color:#A08060;font-size:12px;font-weight:500;padding:8px 16px;border-radius:25px;cursor:pointer;transition:all 0.2s;}
+.topic:hover{background:rgba(224,122,82,0.12);border-color:var(--coral);color:var(--coral);}
+.coffee-cta{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-size:15px;font-weight:700;padding:17px 48px;border-radius:40px;margin-bottom:28px;transition:background 0.2s;letter-spacing:0.5px;}
+.coffee-cta:hover{background:#C85E38;}
+.social-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.soc-link{background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.1);color:#A08060;text-decoration:none;font-size:12px;font-weight:600;padding:10px 22px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;}
+.soc-link:hover{background:rgba(224,122,82,0.1);border-color:var(--coral);color:var(--coral);}
+.footer-quote{margin-top:36px;font-family:'Lora',serif;font-style:italic;color:#7A5A40;font-size:13px;}
+
+/* FADE-IN UTILITY */
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:12px 20px;}
+  .nav-links a:not(.nav-resume){display:none;}
+  .sec-inner{padding:0 20px;}
+  .hero{padding:80px 20px 48px;}
+  .hero-stats{flex-wrap:wrap;}
+  .hs{min-width:30%;}
+  .adv-grid{grid-template-columns:1fr 1fr;}
+  .sq-grid{grid-template-columns:1fr 1fr;}
+.gbg-card{background:var(--dark);border-radius:20px;padding:40px;position:relative;overflow:hidden;}
+.gbg-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(232,184,75,0.07),transparent 60%);pointer-events:none;}
+.gbg-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px;}
+.gbg-name{font-size:30px;font-weight:900;color:var(--warm);letter-spacing:-1px;line-height:1.05;margin-bottom:6px;}
+.gbg-sub{font-family:'Lora',serif;font-style:italic;color:#7A5A40;font-size:14px;margin-bottom:24px;line-height:1.6;}
+.gbg-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+.gbg-stat{background:rgba(255,255,255,0.05);border:0.5px solid rgba(232,184,75,0.2);border-radius:10px;padding:12px 18px;text-align:center;}
+.gbg-sn{font-size:20px;font-weight:900;color:var(--gold);}
+.gbg-sl{font-size:10px;color:#7A5A40;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+.gbg-body{font-size:13px;color:#C4A882;line-height:1.7;}
+.gbg-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.gbg-pill{background:rgba(224,122,82,0.1);border:0.5px solid rgba(224,122,82,0.3);color:var(--coral);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;}
+
+/* SIDE QUESTS */
+.sq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.sq-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:20px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
+.sq-card.visible{opacity:1;transform:translateY(0);}
+.sq-card:hover{border-color:var(--coral);transform:translateY(-3px);}
+.sq-icon{font-size:24px;margin-bottom:10px;}
+.sq-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;}
+.sq-role{font-size:11px;color:var(--coral);font-weight:600;margin-bottom:6px;}
+.sq-desc{font-size:11px;color:var(--muted);line-height:1.55;}
+.sq-badge{display:inline-block;background:#FFF5F0;border:0.5px solid #F5C4AD;color:#C05A30;font-size:9px;font-weight:700;padding:3px 9px;border-radius:5px;margin-top:8px;text-transform:uppercase;letter-spacing:0.5px;}
+  .proj-grid{grid-template-columns:1fr 1fr;}
+  .traits-grid{grid-template-columns:1fr 1fr;}
+  .world-grid{grid-template-columns:1fr;}
+  .dream-grid{grid-template-columns:1fr;}
+  .c-stats{grid-template-columns:repeat(3,1fr);}
+  .char-card{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">VY<span>.</span>LE</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#gbg">Grab Before Grad</a>
+    <a href="#projects">Projects</a>
+    <a href="#sidequests">Side Quests</a>
+    <a href="#skills">Skills</a>
+    <a href="#dream">Dream</a>
+    <a href="#world">My World</a>
+    <a href="#contact">Connect</a>
+    <a href="#" class="nav-resume">Resume ↓</a>
+  </div>
+  <div class="nav-open">
+    <div class="nav-open-dot"></div>
+    <div class="nav-open-text">Open to Work</div>
+  </div>
+</nav>
+
+<!-- ░░ HERO ░░ -->
+<div class="hero">
+  <div class="hero-badge">Character Building Mode: In Progress ⚙️</div>
+  <div class="hero-title">MAIN <span class="a">CHARACTER:</span><br><span class="g">VALERIE</span></div>
+  <p class="hero-sub">Here's her world — the data, the decisions, the destinations. Watch the movie. See it through her lens.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;position:relative;">
+    <span style="background:rgba(224,122,82,0.12);border:0.5px solid rgba(224,122,82,0.3);color:#E8A882;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:0.3px;">Business Analytics</span>
+    <span style="background:rgba(90,163,200,0.12);border:0.5px solid rgba(90,163,200,0.3);color:#8AC8E0;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:0.3px;">Marketing</span>
+    <span style="background:rgba(232,184,75,0.12);border:0.5px solid rgba(232,184,75,0.3);color:#E8C870;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:0.3px;">Market Research</span>
+    <span style="background:rgba(106,171,123,0.12);border:0.5px solid rgba(106,171,123,0.3);color:#90C8A0;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:0.3px;">Economics</span>
+    <span style="background:rgba(224,122,82,0.12);border:0.5px solid rgba(224,122,82,0.3);color:#E8A882;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:0.3px;">Strategy</span>
+    <span style="background:rgba(90,163,200,0.12);border:0.5px solid rgba(90,163,200,0.3);color:#8AC8E0;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:0.3px;">GTM & Sales Enablement</span>
+  </div>
+  <a href="#about" class="hero-cta">▶ &nbsp;Enter My World</a>
+  <div class="hero-stats">
+    <div class="hs" onclick="scroll('world')"><div class="hs-n">6</div><div class="hs-l">Countries</div></div>
+    <div class="hs" onclick="scroll('experience')"><div class="hs-n">8+</div><div class="hs-l">Internships</div></div>
+    <div class="hs" onclick="scroll('world')"><div class="hs-n">37</div><div class="hs-l">US States</div></div>
+    <div class="hs" onclick="scroll('world')"><div class="hs-n">15</div><div class="hs-l">Natl Parks</div></div>
+    <div class="hs" onclick="scroll('projects')"><div class="hs-n">20+</div><div class="hs-l">Projects</div></div>
+    <div class="hs"><div class="hs-n">3.72</div><div class="hs-l">GPA</div></div>
+  </div>
+</div>
+
+<!-- ░░ ABOUT ░░ -->
+<div id="about" class="sec-wrap">
+<div class="sec-inner">
+  <div class="s-label">Player One</div>
+  <div class="s-title">Meet Valerie.</div>
+  <div class="s-sub">Choose your adventure — every button leads somewhere real.</div>
+  <div class="char-card fade-in">
+    <div class="char-av">V</div>
+    <div>
+      <div class="char-tag">Business Analytics · Marketing · Economics · Media Fellow · DePauw '26</div>
+      <div class="char-name">Vy (Valerie) Le</div>
+      <div class="char-bio">I turn data into decisions — and I've done it at Pfizer, HP Tech Ventures, 1st Source Bank, World Wildlife Fund, Central Indiana Corporate Partnership, a London market research firm, and a Singapore tech startup. I've analyzed behavioral data from 10,000+ users, led a 300-person global summit, co-founded a startup that hit 40K views in 4 days, covered it all for my school newspaper, and managed a financial coaching brand's entire social media presence. I don't just study the world. I show up in it.</div>
+    </div>
+  </div>
+  <div class="c-stats fade-in">
+    <div class="cs-item" onclick="scroll('world')"><div class="cs-n">6 🌍</div><div class="cs-l">Countries</div></div>
+    <div class="cs-item" onclick="scroll('experience')"><div class="cs-n">8+ 💼</div><div class="cs-l">Internships</div></div>
+    <div class="cs-item" onclick="scroll('world')"><div class="cs-n">37 🚗</div><div class="cs-l">US States</div></div>
+    <div class="cs-item" onclick="scroll('projects')"><div class="cs-n">20+ 🧠</div><div class="cs-l">Projects</div></div>
+    <div class="cs-item"><div class="cs-n">3.72</div><div class="cs-l">GPA · Dean's List</div></div>
+    <div class="cs-item" onclick="scroll('world')"><div class="cs-n">15 🏔️</div><div class="cs-l">Natl Parks</div></div>
+  </div>
+  <div class="adv-grid">
+    <a href="#world" class="adv-btn fade-in"><div class="adv-icon">🌍</div><div class="adv-t">Move Countries</div><div class="adv-s">Vietnam → Berlin → London → NYC → Singapore</div><div class="adv-st">6 countries · 3 continents</div></a>
+    <a href="#experience" class="adv-btn fade-in"><div class="adv-icon">💼</div><div class="adv-t">Take an Internship</div><div class="adv-s">Analytics, strategy, marketing & VC</div><div class="adv-st">8+ internships · 4 countries</div></a>
+    <a href="#world" class="adv-btn fade-in"><div class="adv-icon">🚗</div><div class="adv-t">Go on a Road Trip</div><div class="adv-s">The windows down, the map open</div><div class="adv-st">37 US states · 15 national parks</div></a>
+    <a href="#projects" class="adv-btn fade-in"><div class="adv-icon">🧠</div><div class="adv-t">Solve a Problem</div><div class="adv-s">Turn messy data into clear decisions</div><div class="adv-st">20+ analytics & strategy projects</div></a>
+    <a href="#gbg" class="adv-btn fade-in"><div class="adv-icon">🛒</div><div class="adv-t">Grab Before Grad</div><div class="adv-s">The startup I built from a group chat</div><div class="adv-st">40K views · 50% sell-through · Founder</div></a>
+    <a href="#sidequests" class="adv-btn fade-in"><div class="adv-icon">🎭</div><div class="adv-t">Side Quest Mode</div><div class="adv-s">Events, media, radio, writing & more</div><div class="adv-st">The roles that shaped everything</div></a>
+    <a href="#projects" class="adv-btn fade-in"><div class="adv-icon">🚀</div><div class="adv-t">Build & Create</div><div class="adv-s">Newspaper · ballet · photography · design</div><div class="adv-st">Many mediums, one voice</div></a>
+    <a href="#contact" class="adv-btn fade-in" style="border-color:rgba(224,122,82,0.4);background:rgba(224,122,82,0.04);"><div class="adv-icon">☕</div><div class="adv-t">Let's Actually Talk</div><div class="adv-s">Book a coffee chat — pick any topic</div><div class="adv-st">Open to new conversations</div></a>
+  </div>
+</div>
+</div>
+
+<!-- ░░ EXPERIENCE ░░ -->
+<div id="experience" class="sec-wrap alt">
+<div class="sec-inner">
+  <div class="s-label">💼 Internship Arc</div>
+  <div class="s-title">Where I've Been.</div>
+  <div class="s-sub">8 companies. 4 countries. Every industry I could get my hands on.</div>
+  <div class="exp-list">
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#E07A52;"></div>
+      <div>
+        <div class="exp-co">Pfizer</div>
+        <div class="exp-role">Global Commercial Analytics Intern</div>
+        <div class="exp-loc">📍 New York, USA · June – August 2025</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Led a cross-functional team of 8 to design and execute Pfizer's largest GCA Summit — 300+ global leaders and executives</div>
+          <div class="exp-impact">Conducted 10+ stakeholder interviews; delivered redesigned PM framework adopted by 50+ global managers</div>
+          <div class="exp-impact">Mapped PMR regulatory approval requirements across 12+ countries to improve cross-border planning</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#E07A52;"></div>
+      <div>
+        <div class="exp-co">iMin Technology / KiwiCloud</div>
+        <div class="exp-role">Go-To-Market Strategy & Sales Enablement Analyst</div>
+        <div class="exp-loc">📍 Singapore (Remote) · August – December 2025</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Developed full U.S. SMB/mid-market GTM strategy for KiwiCloud UEM platform — competitor analysis, pricing, ideal customer profiles</div>
+          <div class="exp-impact">Built sales enablement materials: How to Sell KiwiCloud, vertical messaging, discovery frameworks, ROI/TCO positioning</div>
+          <div class="exp-impact">Created workflow visuals and policy engine diagrams used by product, sales engineering, and leadership for U.S. expansion</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#5AA3C8;"></div>
+      <div>
+        <div class="exp-co">Central Indiana Corporate Partnership — Ascend Indiana</div>
+        <div class="exp-role">Product Marketing Intern</div>
+        <div class="exp-loc">📍 Indianapolis, USA · January – April 2025</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Boosted user engagement 20% by analyzing behavioral data from 10,000+ users with Mixpanel and delivering product insights</div>
+          <div class="exp-impact">Designed and executed 3 A/B tests (personalized invites, progress nudges), raising profile completion rates by 15%</div>
+          <div class="exp-impact">Defined and monitored 13+ core KPIs — boosted job seeker engagement 25% and employer interaction 18%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#5AA3C8;"></div>
+      <div>
+        <div class="exp-co">HP Tech Ventures</div>
+        <div class="exp-role">Deal Sourcing & Startup Analysis Extern</div>
+        <div class="exp-loc">📍 Remote · November 2024 – January 2025</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Sourced and evaluated 100+ early-stage startups across SaaS, AI, and consumer tech via Crunchbase, AngelList & PitchBook</div>
+          <div class="exp-impact">Conducted due diligence on 8 high-potential startups — built 5 market sizing models and 3 competitor benchmarking analyses</div>
+          <div class="exp-impact">Authored a 3-slide investment memo for Notion, translating complex data into strategic recommendations for senior stakeholders</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#5AA3C8;"></div>
+      <div>
+        <div class="exp-co">Hub of China</div>
+        <div class="exp-role">Market Research Analysis Intern</div>
+        <div class="exp-loc">📍 London, UK · September – December 2024</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Delivered 3 global market analyses providing actionable entry strategies that informed 2 successful product launches in Vietnam</div>
+          <div class="exp-impact">Enhanced marketing profiles with consumer insights, driving 15% increase in engagement across digital platforms</div>
+          <div class="exp-impact">Shortened client decision timelines by 20% through data-driven market entry and competitive recommendations</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#6AAB7B;"></div>
+      <div>
+        <div class="exp-co">1st Source Bank</div>
+        <div class="exp-role">Marketing Analytics & IT Intern</div>
+        <div class="exp-loc">📍 South Bend, Indiana · May – August 2024</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Improved customer satisfaction forecasting accuracy by 25% using regression analysis in Predict IQ and Stats IQ (Qualtrics)</div>
+          <div class="exp-impact">Produced 5 Power BI dashboards covering competitor closures, new account trends, and consumer loan analysis</div>
+          <div class="exp-impact">Formulated strategies for 5 promotional campaigns, increasing customer engagement 18–20% across digital channels</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#6AAB7B;"></div>
+      <div>
+        <div class="exp-co">World Wildlife Fund (WWF)</div>
+        <div class="exp-role">Data Analytics Intern — Knowledge Product Development</div>
+        <div class="exp-loc">📍 Hanoi, Vietnam · May – August 2023</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Supported one of the world's largest environmental NGOs — WWF operates across 100+ countries with a global conservation mission</div>
+          <div class="exp-impact">Streamlined Carbi initiative reporting, improving data accessibility for 20+ field teams across Southeast Asia</div>
+          <div class="exp-impact">Developed 10+ reports and an internal OD website; drove 30% reporting efficiency improvement through standardized workflows</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-dot" style="background:#A89080;"></div>
+      <div>
+        <div class="exp-co">APPE — Association for Practical & Professional Ethics</div>
+        <div class="exp-role">Communications & Events Intern</div>
+        <div class="exp-loc">📍 Greencastle, Indiana · February 2026 – Present</div>
+        <div class="exp-impacts">
+          <div class="exp-impact">Draft and edit content for email campaigns, newsletters, and website updates for a professional ethics-focused audience</div>
+          <div class="exp-impact">Analyzed membership and participation data in Excel/Google Sheets, creating visual summaries for retention and conference planning</div>
+          <div class="exp-impact">Assist in full-cycle event management for the APPE Annual Conference (in-person + virtual audiences)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ░░ GRAB BEFORE GRAD ░░ -->
+<div id="gbg" class="sec-wrap">
+<div class="sec-inner">
+  <div class="s-label">🛒 Founder Mode</div>
+  <div class="s-title">Grab Before Grad.</div>
+  <div class="s-sub">The startup I built from a group chat — before graduation, obviously.</div>
+  <div class="gbg-card fade-in">
+    <div style="position:relative;">
+      <div class="gbg-tag">Co-Founder & CEO · Greencastle, Indiana · February 2026 – Present</div>
+      <div class="gbg-name">Grab Before Grad 🎓</div>
+      <div class="gbg-sub">"What if graduating seniors had one place to sell everything before they left?"</div>
+      <div class="gbg-stats">
+        <div class="gbg-stat"><div class="gbg-sn">40K+</div><div class="gbg-sl">Views in 4 days</div></div>
+        <div class="gbg-stat"><div class="gbg-sn">50%</div><div class="gbg-sl">Sell-through rate</div></div>
+        <div class="gbg-stat"><div class="gbg-sn">500+</div><div class="gbg-sl">Weekly event attendees</div></div>
+        <div class="gbg-stat"><div class="gbg-sn">0→1</div><div class="gbg-sl">Built from scratch</div></div>
+      </div>
+      <div class="gbg-body">
+        I co-founded a multi-vendor resale platform for DePauw's graduating seniors. I built the brand, designed the marketing strategy, ran the data, coordinated the logistics, and showed up every week to run open-house events. It wasn't a class project. It wasn't a homework assignment. It was just a problem I saw, a solution I built, and proof that I'll execute on an idea — fast.
+        <br><br>The platform connected sellers and buyers across campus, drove strong social media traction from day one, and became a genuine community hub in the weeks leading up to graduation. Strong product-market fit. Zero budget. All hustle.
+      </div>
+      <div class="gbg-pills">
+        <span class="gbg-pill">Growth Marketing</span>
+        <span class="gbg-pill">Platform Operations</span>
+        <span class="gbg-pill">Community Building</span>
+        <span class="gbg-pill">Content Strategy</span>
+        <span class="gbg-pill">Data-driven Campaigns</span>
+        <span class="gbg-pill">Event Management</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ░░ PROJECTS ░░ -->
+<div id="projects" class="sec-wrap">
+<div class="sec-inner">
+  <div class="s-label">🧠 Problem Solving Mode</div>
+  <div class="s-title">What I've Built.</div>
+  <div class="s-sub">20+ projects spanning analytics, strategy, marketing, VC research, and media.</div>
+  <div class="proj-filters">
+    <button class="pf-btn active" onclick="fp('all',this)">All</button>
+    <button class="pf-btn" onclick="fp('analytics',this)">Analytics</button>
+    <button class="pf-btn" onclick="fp('strategy',this)">Strategy</button>
+    <button class="pf-btn" onclick="fp('marketing',this)">Marketing</button>
+    <button class="pf-btn" onclick="fp('vc',this)">Venture Capital</button>
+    <button class="pf-btn" onclick="fp('startup',this)">Startup</button>
+    <button class="pf-btn" onclick="fp('media',this)">Media & Design</button>
+  </div>
+  <div class="proj-grid" id="pgrid">
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Beyoncé & Taylor Swift Concert Ticket Sales Analysis</div><div class="proj-tools">Python · Regression · Data Visualization</div></div>
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">EDA for Asset Price Prediction</div><div class="proj-tools">Python · Statistical Modeling · Feature Engineering</div></div>
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Logistic Regression for Stock Market</div><div class="proj-tools">R · RStudio · Stata</div></div>
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Beautiful Homes Inc. Business Case</div><div class="proj-tools">SQL · Tableau · Advanced Excel</div></div>
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Ascend Indiana User Engagement Analysis</div><div class="proj-tools">Mixpanel · A/B Testing · KPI Framework Design</div></div>
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">1st Source Bank Customer Satisfaction Modeling</div><div class="proj-tools">Predict IQ · Stats IQ · Regression · Power BI</div></div>
+    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">D3TV Content Performance Dashboards (50+ weekly)</div><div class="proj-tools">Tableau · Google Analytics · Social Insights</div></div>
+    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">KiwiCloud U.S. Go-To-Market Strategy</div><div class="proj-tools">Competitor Analysis · Customer Segmentation · Pricing Strategy</div></div>
+    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Vietnamese Energy Drink Market Entry Strategy</div><div class="proj-tools">Consumer Research · Competitive Analysis · Market Sizing</div></div>
+    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Pfizer PMR Regulatory Mapping (12+ Countries)</div><div class="proj-tools">Stakeholder Interviews · Process Design · SharePoint</div></div>
+    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Pfizer GCA Program Management Blueprint</div><div class="proj-tools">Framework Redesign · Stakeholder Management · Documentation</div></div>
+    <div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Notion (HP Tech Ventures)</div><div class="proj-tools">Crunchbase · PitchBook · AngelList · AI-assisted Research</div></div>
+    <div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">Due Diligence: 8 High-Potential SaaS & AI Startups</div><div class="proj-tools">Market Sizing Models · Competitor Benchmarking · Customer Sentiment</div></div>
+    <div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">A/B Test Suite — Ascend Indiana Profile Completion</div><div class="proj-tools">Experimental Design · Conversion Optimization · Mixpanel</div></div>
+    <div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">1st Source Bank Promotional Campaign Strategy (×5)</div><div class="proj-tools">Cognos · Daybreak Analytics · Power BI · Segmentation</div></div>
+    <div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">Hub of China Digital Engagement Growth Strategy</div><div class="proj-tools">Consumer Insights · Profile Optimization · Analytics</div></div>
+    <div class="proj-card fade-in" data-cat="startup"><div class="proj-cat">Startup</div><div class="proj-name">Grab Before Grad — Multi-Vendor Resale Platform</div><div class="proj-tools">Platform Launch · Growth Marketing · Ops · Events (500+ attendees)</div></div>
+    <div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Writing</div><div class="proj-name">Blog: "When was the last time you were full?"</div><div class="proj-tools">Long-form Writing · Photography · Social Commentary</div></div>
+    <div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Media</div><div class="proj-name">The DePauw Newspaper — 50+ Issues</div><div class="proj-tools">Editorial Leadership · Copywriting · Production Management</div></div>
+    <div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Design</div><div class="proj-name">Social Media Campaigns — Pfizer · APPE · Beyond the Green</div><div class="proj-tools">Canva · Content Strategy · Brand Voice · Analytics</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ░░ SKILLS ░░ -->
+<div id="skills" class="sec-wrap alt">
+<div class="sec-inner">
+  <div class="s-label">🛠️ The Toolkit</div>
+  <div class="s-title">How I Work.</div>
+  <div class="s-sub">The tools and methods I reach for when there's a real problem to solve.</div>
+  <div class="skills-dark fade-in">
+    <div class="sg">
+      <div class="sg-t">Analytics & Data Science</div>
+      <div class="chips">
+        <span class="chip hot">Python</span><span class="chip hot">SQL / MySQL</span><span class="chip hot">R (RStudio)</span><span class="chip hot">Stata</span><span class="chip hot">Tableau</span><span class="chip hot">Power BI</span><span class="chip">Regression Analysis</span><span class="chip">A/B Testing</span><span class="chip">Predictive Modeling</span><span class="chip">Customer Segmentation</span><span class="chip">Exploratory Data Analysis</span><span class="chip">KPI Development</span>
+      </div>
+    </div>
+    <div class="sg">
+      <div class="sg-t">Business & Strategy</div>
+      <div class="chips">
+        <span class="chip hot">GTM Strategy</span><span class="chip hot">Market Research</span><span class="chip hot">Product Analytics</span><span class="chip">Consumer Insights</span><span class="chip">Competitor Benchmarking</span><span class="chip">Market Sizing</span><span class="chip">Sales Enablement</span><span class="chip">CRM Analytics</span><span class="chip">Startup Due Diligence</span><span class="chip">Stakeholder Management</span><span class="chip">Conversion Optimization</span>
+      </div>
+    </div>
+    <div class="sg">
+      <div class="sg-t">Tools & Platforms</div>
+      <div class="chips">
+        <span class="chip">Mixpanel</span><span class="chip">Google Analytics</span><span class="chip">Salesforce</span><span class="chip">SharePoint</span><span class="chip">Cognos</span><span class="chip">Qualtrics</span><span class="chip">Bloomberg Terminal</span><span class="chip">Microsoft Office (Advanced)</span><span class="chip">Canva</span><span class="chip">Crunchbase / PitchBook / AngelList</span><span class="chip">Daybreak Analytics</span>
+      </div>
+    </div>
+    <div class="sg">
+      <div class="sg-t">Leadership & Communication</div>
+      <div class="chips">
+        <span class="chip">Cross-Functional Team Leadership (15–20 people)</span><span class="chip">Event Management (300+ person conferences)</span><span class="chip">Strategic Storytelling</span><span class="chip">Public Speaking</span><span class="chip">English · Vietnamese (native)</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ░░ SIDE QUESTS ░░ -->
+<div id="sidequests" class="sec-wrap">
+<div class="sec-inner">
+  <div class="s-label">🎭 Side Quest Mode</div>
+  <div class="s-title">The Roles That Made Me.</div>
+  <div class="s-sub">These weren't on the main path — they were the detours that turned out to matter most.</div>
+  <div class="sq-grid">
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">🎪</div>
+      <div class="sq-title">Green Center for Performing Arts</div>
+      <div class="sq-role">Student Manager, Production Staff</div>
+      <div class="sq-desc">Led day-of operations for 60+ concerts, lectures, and institutional programs annually. Acted as primary on-site contact — managing AV, backstage flow, hospitality, and a 15–20 person team. Box office, house manager, stage manager, usher. Learned that real leadership happens in real time.</div>
+      <div class="sq-badge">3 years · 180+ events</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">💚</div>
+      <div class="sq-title">Beyond the Green Coaching</div>
+      <div class="sq-role">Social Media & Content Intern</div>
+      <div class="sq-desc">Managed the full social media and content presence for a financial coaching agency. Created content calendars, wrote copy, designed graphics, tracked engagement analytics, and built brand voice for a growing coaching business. Where financial literacy meets scroll-stopping content.</div>
+      <div class="sq-badge">Current · Social Media & Marketing</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">📰</div>
+      <div class="sq-title">The DePauw Newspaper</div>
+      <div class="sq-role">Managing Editor & Copy Director</div>
+      <div class="sq-desc">Supervised a 15-member editorial and creative team across 50+ digital and print issues. Grew readership by 22%. Built a content-tracking system that cut production delays by 40%. Wrote under deadline, edited under pressure, and led a team of people who actually cared about the words.</div>
+      <div class="sq-badge">1.5 years · 50+ issues published</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">📊</div>
+      <div class="sq-title">D3TV — DePauw Student Media</div>
+      <div class="sq-role">Asst. Director of Analytics & Social Media</div>
+      <div class="sq-desc">Built data reporting systems from scratch. 50+ weekly Tableau dashboards tracking viewership and engagement. Implemented Google Analytics pipelines delivering real-time audience data across departments in under 48 hours. Turned viewer behavior into content decisions — and it worked: +25% engagement across all platforms.</div>
+      <div class="sq-badge">1.5 years · Data-driven content strategy</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">💻</div>
+      <div class="sq-title">DePauw HelpDesk & IT</div>
+      <div class="sq-role">Technical Support Intern</div>
+      <div class="sq-desc">Processed 30+ weekly tickets supporting 500+ faculty, staff, and students. 95%+ resolution rate on hardware and software issues. Spearheaded cybersecurity awareness campaigns reaching 2,300+ users, reducing phishing incidents campus-wide. Tech support taught me patience and speed — both useful everywhere.</div>
+      <div class="sq-badge">1.3 years · 95%+ resolution rate</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">📻</div>
+      <div class="sq-title">WGRE 91.5 FM Radio</div>
+      <div class="sq-role">Disk Jockey · Your Sound Alternative</div>
+      <div class="sq-desc">On-air DJ for DePauw's student radio station. Curated playlists, hosted live shows, spoke into a mic for a real audience. Because apparently running analytics and playing music on the radio aren't mutually exclusive. Another form of storytelling — just with better soundtracks.</div>
+      <div class="sq-badge">1 year · Live on-air</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">🎨</div>
+      <div class="sq-title">Art Gallery Monitor & Campus Roles</div>
+      <div class="sq-role">DePauw University</div>
+      <div class="sq-desc">Worked as Art Gallery Monitor and in various front-facing campus roles — giving me exposure to cultural programming, visitor experience, and the quiet skill of being fully present in a space. Small roles, big lessons about hospitality, attention to detail, and what it means to take any job seriously.</div>
+      <div class="sq-badge">Campus life · Multiple roles</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">🤝</div>
+      <div class="sq-title">DePauw Women in Economics & Business</div>
+      <div class="sq-role">Director of Marketing</div>
+      <div class="sq-desc">Led marketing for WEB — DePauw's organization for women in business. +40% newsletter open rate through better content and storytelling. Coordinated outreach across 5 industry events, growing student-professional engagement by 25%. Built campaigns that actually made people show up.</div>
+      <div class="sq-badge">1 year · Community building</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">🤖</div>
+      <div class="sq-title">DePauw Robotics Club</div>
+      <div class="sq-role">Vice President</div>
+      <div class="sq-desc">Planned and organized 55+ weekly meetings and events for a 30-member club. Delegated projects, fostered collaboration, and somehow kept 30 engineers enthusiastic and engaged. Yes, the analytics girl was VP of robotics. Curiosity has no lane.</div>
+      <div class="sq-badge">8 months · VP · 30 members</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ░░ DREAM ░░ -->
+<div id="dream" class="sec-wrap">
+<div class="sec-inner">
+  <div class="s-label">🌟 Looking Forward</div>
+  <div class="s-title">My Dream.</div>
+  <div class="s-sub">Where I'm heading — in 5 to 10 years.</div>
+  <div class="dream-box fade-in">
+    <div class="dream-q">"In 5 years, I want to be leading strategy and analytics at a company that's genuinely changing something — a high-growth startup, a global brand, or something I build myself. In 10 years? I want to have founded something that matters, led a team I'm proud of, and done it from at least two more countries I haven't lived in yet."</div>
+    <div class="dream-open">Currently open to</div>
+    <div class="dream-grid">
+      <div class="dream-item"><div class="di-icon">📊</div><div class="di-text">Business & Marketing Analytics roles where data drives real product and growth decisions</div></div>
+      <div class="dream-item"><div class="di-icon">🚀</div><div class="di-text">Strategy & consulting at the intersection of data, marketing, and business growth</div></div>
+      <div class="dream-item"><div class="di-icon">🌍</div><div class="di-text">Global or international roles — bonus if it comes with a new passport stamp</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ░░ CHARACTERISTICS ░░ -->
+<div id="characteristics" class="sec-wrap alt">
+<div class="sec-inner">
+  <div class="s-label">⚡ Character Stats</div>
+  <div class="s-title">What Makes Me, Me.</div>
+  <div class="s-sub">Ask anyone who's worked with me. These come up every time.</div>
+  <div class="traits-grid">
+    <div class="trait fade-in"><div class="trait-icon">🔥</div><div class="trait-name">Relentlessly Curious</div><div class="trait-desc">I want to understand everything — how it works, why it matters, and what we can do about it</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🌍</div><div class="trait-name">Global Thinker</div><div class="trait-desc">Having lived in 6 countries means I naturally consider multiple angles before making any call</div></div>
+    <div class="trait fade-in"><div class="trait-icon">⚡</div><div class="trait-name">High Energy, High Output</div><div class="trait-desc">I'm the person with 3 internships, a startup, team management, and still shows up excited on Monday</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🤝</div><div class="trait-name">People Magnet</div><div class="trait-desc">I make friends everywhere — on planes, at conferences, at volcanic craters in Hawaii. Everyone is interesting.</div></div>
+    <div class="trait fade-in"><div class="trait-icon">📊</div><div class="trait-name">Data-Driven</div><div class="trait-desc">I don't guess — I test, measure, iterate, and measure again. But I know numbers don't tell the whole story.</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🚀</div><div class="trait-name">Builder Mentality</div><div class="trait-desc">I see a gap and I fill it. Grab Before Grad started as a shower thought and hit 40K views in 4 days.</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🎨</div><div class="trait-name">Creative Strategist</div><div class="trait-desc">I lead with analytics but I think in stories — the best insights are the ones people actually remember</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🎯</div><div class="trait-name">Outcome-Obsessed</div><div class="trait-desc">I don't just complete tasks. I define what success looks like, then work backwards from there.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ░░ WORLD ░░ -->
+<div id="world" class="sec-wrap">
+<div class="sec-inner">
+  <div class="s-label">🌏 Off the Clock</div>
+  <div class="s-title">My World.</div>
+  <div class="s-sub">The stuff that makes the work worth doing — and makes me better at it.</div>
+  <div class="world-grid">
+    <div class="world-card fade-in">
+      <div class="wc-icon">🗺️</div>
+      <div class="wc-title">37 US States + D.C. · 15 National Parks</div>
+      <div class="wc-desc">Road trips are my reset button. I've driven through deserts, hiked through snow, chased waterfalls, and found the best food in the most unexpected places. 15 national parks and counting.</div>
+      <div class="state-chips" id="sc"></div>
+    </div>
+    <div class="world-card fade-in">
+      <div class="wc-icon">🌍</div>
+      <div class="wc-title">Cities I've Called Home</div>
+      <div class="wc-desc">Not just visited — actually lived, worked, and studied. Each city rewired how I think.</div>
+      <div class="place-row">
+        <span class="place-pill">🇻🇳 Hanoi</span><span class="place-pill">🇩🇪 Berlin</span><span class="place-pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 London</span><span class="place-pill">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales</span><span class="place-pill">🇺🇸 Indiana</span><span class="place-pill">🇺🇸 New York</span><span class="place-pill">🇸🇬 Singapore</span>
+      </div>
+    </div>
+    <div class="world-card fade-in">
+      <div class="wc-icon">🥾</div>
+      <div class="wc-title">Hiking & The Outdoors</div>
+      <div class="wc-desc">Volcanoes in Hawaii. Grand Teton in Wyoming. Waterfalls in the Pacific Northwest. I believe the best views are the ones you earn. Car camping is also a legitimate art form.</div>
+    </div>
+    <div class="world-card fade-in">
+      <div class="wc-icon">📸</div>
+      <div class="wc-title">Photography</div>
+      <div class="wc-desc">I've always seen the world through a lens. Landscapes, golden hours, cities at night, people in their element. Every trip is also a photo project.</div>
+    </div>
+    <div class="world-card fade-in">
+      <div class="wc-icon">🍜</div>
+      <div class="wc-title">Food & Culture</div>
+      <div class="wc-desc">The fastest way to understand a new place is through its food. I've eaten my way through Vietnam, London, Germany, Singapore, NYC, and approximately 40 states worth of local diners.</div>
+    </div>
+    <div class="world-card fade-in">
+      <div class="wc-icon">🩰</div>
+      <div class="wc-title">Ballet, Sculpture & the Arts</div>
+      <div class="wc-desc">Years of classical ballet taught me discipline, precision, and how to perform under pressure — all of which show up at work constantly. Also: sculpture, because creativity shouldn't have one lane.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ░░ CONTACT ░░ -->
+<div id="contact" class="contact-wrap">
+<div class="contact-inner">
+  <div class="c-eyebrow">🏆 Achievement Unlocked: You've Met Valerie</div>
+  <div class="c-title">Now let's <span>actually talk.</span></div>
+  <div class="c-sub">"I give great coffee chats. Ask me anything — I'll give you a real answer, not a rehearsed one."</div>
+  <div class="topics-label">Pick a topic and let's go:</div>
+  <div class="topics">
+    <span class="topic">🏔️ My favorite national park (hot take incoming)</span>
+    <span class="topic">📊 My wildest data project</span>
+    <span class="topic">🚀 My startup origin story</span>
+    <span class="topic">📈 Investing & Robinhood strategies</span>
+    <span class="topic">🌍 What living in 6 countries actually teaches you</span>
+    <span class="topic">💼 Breaking into analytics without a CS degree</span>
+    <span class="topic">🎯 My honest 5-year plan</span>
+    <span class="topic">🛣️ Best U.S. road trip I've done (ranked)</span>
+    <span class="topic">🍜 Best food city I've ever been to</span>
+    <span class="topic">☕ Just want to say hi</span>
+  </div>
+  <a href="https://calendly.com" target="_blank" class="coffee-cta">☕ &nbsp;Book a Coffee Chat</a>
+  <div class="social-row">
+    <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" class="soc-link">LinkedIn</a>
+    <a href="mailto:maivyle_2026@depauw.edu" class="soc-link">Email</a>
+    <a href="https://www.instagram.com/le_maivyy/" target="_blank" class="soc-link">Instagram</a>
+    <a href="#" class="soc-link">Resume ↓</a>
+  </div>
+  <div class="footer-quote">"Trust the process 🌻" — Vy · Valerie · Le</div>
+</div>
+</div>
+
+<script>
+// Populate US states
+const states=['Arizona','California','Colorado','Connecticut','Washington D.C.','Delaware','Florida','Hawaii','Idaho','Illinois','Indiana','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Missouri','Montana','Nevada','New Hampshire','New Jersey','New York','North Carolina','Ohio','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wyoming'];
+const sc=document.getElementById('sc');
+states.forEach(s=>{const c=document.createElement('span');c.className='sc';c.textContent=s;sc.appendChild(c);});
+
+// Scroll helper
+function scroll(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+// Project filter
+function fp(cat,btn){
+  document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){card.style.display='block';}
+    else{card.style.display='none';}
+  });
+}
+
+// Intersection observer for fade-ins
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.08});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+// Active nav highlight on scroll
+const sections = ['about','experience','gbg','projects','sidequests','skills','dream','characteristics','world','contact'];
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-resume)');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 120) current = id;
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
