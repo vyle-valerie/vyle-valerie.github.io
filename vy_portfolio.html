@@ -850,7 +850,7 @@ const navEl = document.querySelector('nav');
 
 function getNavAnchorOffset(){
   const navHeight = navEl ? navEl.offsetHeight : 72;
-  const visualGap = window.innerWidth <= 900 ? 8 : 12;
+  const visualGap = window.innerWidth <= 900 ? 4 : 12;
   return navHeight + visualGap;
 }
 
@@ -863,11 +863,9 @@ function setActiveNav(id){
 function scrollToSection(id, behavior = 'smooth'){
   const el = document.getElementById(id);
   if(!el) return;
-  // On desktop, anchor to the section heading content to avoid oversized top gap from section padding.
-  const desktopAnchor = window.innerWidth > 900
-    ? (el.querySelector('.s-label, .c-eyebrow, .s-title, .c-title') || el)
-    : el;
-  const targetY = Math.max(0, window.scrollY + desktopAnchor.getBoundingClientRect().top - getNavAnchorOffset());
+  // Anchor to section heading content to avoid oversized gaps from section top padding.
+  const sectionAnchor = el.querySelector('.s-label, .c-eyebrow, .s-title, .c-title') || el;
+  const targetY = Math.max(0, window.scrollY + sectionAnchor.getBoundingClientRect().top - getNavAnchorOffset());
   window.scrollTo({ top: targetY, behavior });
 }
 
