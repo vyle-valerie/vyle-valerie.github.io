@@ -203,15 +203,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .gbg-pill{background:rgba(224,122,82,0.1);border:0.5px solid rgba(224,122,82,0.3);color:var(--coral);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;}
 
 /* SIDE QUESTS */
-.sq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.sq-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.sq-grid::-webkit-scrollbar{display:none;}
 .sq-card{background:var(--card);border:0.5px solid var(--border);border-radius:20px;padding:22px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
 .sq-card.visible{opacity:1;transform:translateY(0);}
 .sq-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 24px rgba(224,122,82,0.08);}
+.sq-card{cursor:pointer;}
+.sq-card{flex:0 0 340px;scroll-snap-align:start;}
 .sq-icon{font-size:28px;margin-bottom:10px;}
 .sq-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:2px;}
 .sq-role{font-size:11px;color:var(--coral);font-weight:600;margin-bottom:8px;}
-.sq-desc{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px;}
+.sq-desc{display:none;}
 .sq-badge{display:inline-block;background:#FFF5F0;border:0.5px solid #F5C4AD;color:#C05A30;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;}
+.sq-hint{display:block;font-size:11px;color:var(--muted);font-weight:600;margin:-8px 0 10px;}
+.sq-modal-panel{max-width:640px;}
+.sq-modal-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.sq-modal-icon{font-size:28px;line-height:1;}
+.sq-modal-title{font-size:24px;font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:4px;}
+.sq-modal-role{font-size:13px;color:var(--coral);font-weight:700;}
+.sq-modal-desc{font-size:14px;color:#4A3A2A;line-height:1.7;margin-top:14px;}
 
 @media(max-width:900px){
   html{scroll-padding-top:90px;}
@@ -228,7 +238,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   .hero-stats{flex-wrap:wrap;}
   .hs{min-width:30%;}
   .adv-grid{grid-template-columns:1fr 1fr;}
-  .sq-grid{grid-template-columns:1fr 1fr;}
+  .sq-hint{display:block;}
+  .sq-grid{gap:12px;padding-bottom:6px;}
+  .sq-card{flex:0 0 82%;scroll-snap-align:start;}
   .proj-grid{grid-template-columns:1fr 1fr;}
   .traits-grid{grid-template-columns:1fr 1fr;}
   .world-grid{grid-template-columns:1fr;}
@@ -279,7 +291,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <a class="hs" href="#world"><div class="hs-n">6</div><div class="hs-l">countries</div></a>
     <a class="hs" href="#experience"><div class="hs-n">8+</div><div class="hs-l">internships</div></a>
     <a class="hs" href="#projects"><div class="hs-n">35+</div><div class="hs-l">projects</div></a>
-    <a class="hs" href="#world"><div class="hs-n">37</div><div class="hs-l">us states</div></a>
     <a class="hs" href="Vy Mai Le Transcript.pdf" download>
       <div class="hs-n">3.72</div>
       <div class="hs-l">gpa</div>
@@ -564,6 +575,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="s-label">🎭 Side Quest Mode</div>
   <div class="s-title">The Roles That Made Me.</div>
   <div class="s-sub">These weren't on the main path — they were the detours that turned out to matter most.</div>
+  <div class="sq-hint">Swipe to explore all 9 side quests →</div>
   <div class="sq-grid">
 
     <div class="sq-card fade-in">
@@ -575,11 +587,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     </div>
 
     <div class="sq-card fade-in">
-      <div class="sq-icon">💚</div>
-      <div class="sq-title">Beyond the Green Coaching</div>
-      <div class="sq-role">Social Media & Content Intern</div>
-      <div class="sq-desc">Managed the full social media and content presence for a financial coaching agency. Created content calendars, wrote copy, designed graphics, tracked engagement analytics, and built brand voice for a growing coaching business. Where financial literacy meets scroll-stopping content.</div>
-      <div class="sq-badge">Current · Social Media & Marketing</div>
+      <div class="sq-icon">📊</div>
+      <div class="sq-title">D3TV — DePauw Student Media</div>
+      <div class="sq-role">Asst. Director of Analytics & Social Media</div>
+      <div class="sq-desc">Built data reporting systems from scratch. 50+ weekly Tableau dashboards tracking viewership and engagement. Implemented Google Analytics pipelines delivering real-time audience data across departments in under 48 hours. Turned viewer behavior into content decisions — and it worked: +25% engagement across all platforms.</div>
+      <div class="sq-badge">1.5 years · Data-driven content strategy</div>
     </div>
 
     <div class="sq-card fade-in">
@@ -599,27 +611,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     </div>
 
     <div class="sq-card fade-in">
+      <div class="sq-icon">📻</div>
+      <div class="sq-title">WGRE 91.5 FM Radio</div>
+      <div class="sq-role">Disk Jockey · Your Sound Alternative</div>
+      <div class="sq-desc">On-air DJ for DePauw's student radio station. Curated playlists, hosted live shows, spoke into a mic for a real audience. Because apparently running analytics and playing music on the radio aren't mutually exclusive. Another form of storytelling — just with better soundtracks.</div>
+      <div class="sq-badge">1 year · Live on-air</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">💚</div>
+      <div class="sq-title">Beyond the Green Coaching</div>
+      <div class="sq-role">Social Media & Content Intern</div>
+      <div class="sq-desc">Managed the full social media and content presence for a financial coaching agency. Created content calendars, wrote copy, designed graphics, tracked engagement analytics, and built brand voice for a growing coaching business. Where financial literacy meets scroll-stopping content.</div>
+      <div class="sq-badge">Current · Social Media & Marketing</div>
+    </div>
+
+    <div class="sq-card fade-in">
       <div class="sq-icon">🤝</div>
       <div class="sq-title">DePauw Women in Economics & Business</div>
       <div class="sq-role">Director of Marketing</div>
       <div class="sq-desc">Led marketing for WEB — DePauw's organization for women in business. +40% newsletter open rate through better content and storytelling. Coordinated outreach across 5 industry events, growing student-professional engagement by 25%. Built campaigns that actually made people show up.</div>
       <div class="sq-badge">1 year · Community building</div>
-    </div>
-
-    <div class="sq-card fade-in">
-      <div class="sq-icon">📊</div>
-      <div class="sq-title">D3TV — DePauw Student Media</div>
-      <div class="sq-role">Asst. Director of Analytics & Social Media</div>
-      <div class="sq-desc">Built data reporting systems from scratch. 50+ weekly Tableau dashboards tracking viewership and engagement. Implemented Google Analytics pipelines delivering real-time audience data across departments in under 48 hours. Turned viewer behavior into content decisions — and it worked: +25% engagement across all platforms.</div>
-      <div class="sq-badge">1.5 years · Data-driven content strategy</div>
-    </div>
-
-    <div class="sq-card fade-in">
-      <div class="sq-icon">💻</div>
-      <div class="sq-title">DePauw HelpDesk & IT</div>
-      <div class="sq-role">Technical Support Intern</div>
-      <div class="sq-desc">Processed 30+ weekly tickets supporting 500+ faculty, staff, and students. 95%+ resolution rate on hardware and software issues. Spearheaded cybersecurity awareness campaigns reaching 2,300+ users, reducing phishing incidents campus-wide. Tech support taught me patience and speed — both useful everywhere.</div>
-      <div class="sq-badge">1.3 years · 95%+ resolution rate</div>
     </div>
 
     <div class="sq-card fade-in">
@@ -631,16 +643,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     </div>
 
     <div class="sq-card fade-in">
-      <div class="sq-icon">📻</div>
-      <div class="sq-title">WGRE 91.5 FM Radio</div>
-      <div class="sq-role">Disk Jockey · Your Sound Alternative</div>
-      <div class="sq-desc">On-air DJ for DePauw's student radio station. Curated playlists, hosted live shows, spoke into a mic for a real audience. Because apparently running analytics and playing music on the radio aren't mutually exclusive. Another form of storytelling — just with better soundtracks.</div>
-      <div class="sq-badge">1 year · Live on-air</div>
+      <div class="sq-icon">💻</div>
+      <div class="sq-title">DePauw HelpDesk & IT</div>
+      <div class="sq-role">Technical Support Intern</div>
+      <div class="sq-desc">Processed 30+ weekly tickets supporting 500+ faculty, staff, and students. 95%+ resolution rate on hardware and software issues. Spearheaded cybersecurity awareness campaigns reaching 2,300+ users, reducing phishing incidents campus-wide. Tech support taught me patience and speed — both useful everywhere.</div>
+      <div class="sq-badge">1.3 years · 95%+ resolution rate</div>
     </div>
 
   </div>
 </div>
 </div>
+
+  <div id="sqModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-panel sq-modal-panel" role="dialog" aria-modal="true" aria-labelledby="sqModalTitle">
+      <button id="sqModalClose" class="modal-close" aria-label="Close side quest details">×</button>
+      <div class="sq-modal-head">
+        <div id="sqModalIcon" class="sq-modal-icon"></div>
+        <div>
+          <div id="sqModalTitle" class="sq-modal-title"></div>
+          <div id="sqModalRole" class="sq-modal-role"></div>
+        </div>
+      </div>
+      <div id="sqModalBadge" class="sq-badge"></div>
+      <div id="sqModalDesc" class="sq-modal-desc"></div>
+    </div>
+  </div>
 
 <!-- ░░ CHARACTERISTICS ░░ -->
 <div id="characteristics" class="sec-wrap alt">
@@ -842,6 +869,56 @@ window.addEventListener('scroll', () => {
 });
 
 function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
+
+// Side Quest detail popups
+const sqModal = document.getElementById('sqModal');
+const sqModalClose = document.getElementById('sqModalClose');
+const sqModalIcon = document.getElementById('sqModalIcon');
+const sqModalTitle = document.getElementById('sqModalTitle');
+const sqModalRole = document.getElementById('sqModalRole');
+const sqModalBadge = document.getElementById('sqModalBadge');
+const sqModalDesc = document.getElementById('sqModalDesc');
+
+function openSqModal(card){
+  if(!sqModal) return;
+  sqModalIcon.textContent = card.querySelector('.sq-icon')?.textContent?.trim() || '';
+  sqModalTitle.textContent = card.querySelector('.sq-title')?.textContent?.trim() || '';
+  sqModalRole.textContent = card.querySelector('.sq-role')?.textContent?.trim() || '';
+  sqModalBadge.textContent = card.querySelector('.sq-badge')?.textContent?.trim() || '';
+  sqModalDesc.textContent = card.querySelector('.sq-desc')?.textContent?.trim() || '';
+  sqModal.classList.add('visible');
+  sqModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSqModal(){
+  if(!sqModal) return;
+  sqModal.classList.remove('visible');
+  sqModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.sq-card').forEach(card => {
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.addEventListener('click', () => openSqModal(card));
+  card.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      openSqModal(card);
+    }
+  });
+});
+
+if(sqModalClose) sqModalClose.addEventListener('click', closeSqModal);
+if(sqModal){
+  sqModal.addEventListener('click', (e) => {
+    if(e.target === sqModal) closeSqModal();
+  });
+}
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape' && sqModal?.classList.contains('visible')) closeSqModal();
+});
 
 // Active nav highlight on scroll
 const sections = ['about','experience','projects','skills','sidequests','world','contact'];
