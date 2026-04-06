@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;scroll-padding-top:88px;}
+html{scroll-behavior:smooth;scroll-padding-top:72px;}
 body{font-family:'Outfit',sans-serif;background:#FDF8F2;color:#1E1208;overflow-x:hidden;}
 :root{
   --coral:#E07A52;--gold:#E8B84B;--blue:#5AA3C8;--green:#6AAB7B;
@@ -214,7 +214,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .sq-badge{display:inline-block;background:#FFF5F0;border:0.5px solid #F5C4AD;color:#C05A30;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;}
 
 @media(max-width:900px){
-  html{scroll-padding-top:170px;}
+  html{scroll-padding-top:118px;}
   nav{padding:calc(env(safe-area-inset-top) + 12px) 20px 12px;flex-wrap:wrap;align-items:center;row-gap:10px;}
   .nav-logo{padding:6px 0;}
   .nav-open{margin-left:auto;padding:0;border-left:none;}
@@ -846,17 +846,25 @@ function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
 // Active nav highlight on scroll
 const sections = ['about','experience','projects','skills','sidequests','characteristics','world','contact'];
 const navLinks = document.querySelectorAll('.nav-links a:not(.nav-resume)');
-window.addEventListener('scroll', () => {
+const navEl = document.querySelector('nav');
+function getNavOffset(){
+  return (navEl ? navEl.offsetHeight : 88) + 12;
+}
+function updateActiveNav(){
   let current = '';
+  const scrollPos = window.scrollY + getNavOffset();
   sections.forEach(id => {
     const el = document.getElementById(id);
-    if(el && window.scrollY >= el.offsetTop - 120) current = id;
+    if(el && scrollPos >= el.offsetTop) current = id;
   });
   navLinks.forEach(link => {
     link.classList.remove('active');
     if(link.getAttribute('href') === '#' + current) link.classList.add('active');
   });
-});
+}
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('resize', updateActiveNav);
+updateActiveNav();
 </script>
 </body>
 </html>
