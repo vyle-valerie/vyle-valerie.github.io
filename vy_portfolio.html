@@ -1042,6 +1042,21 @@ function getNavAnchorOffset(){
   return navHeight + visualGap;
 }
 
+function syncHeroTopOffset(){
+  const heroEl = document.getElementById('hero');
+  if(!heroEl || !navEl) return;
+
+  // On phones, keep hero content fully below the fixed nav, even when nav wraps.
+  if(window.innerWidth <= 700){
+    const navHeight = navEl.offsetHeight;
+    const topPad = navHeight + 14;
+    heroEl.style.paddingTop = topPad + 'px';
+    return;
+  }
+
+  heroEl.style.paddingTop = '';
+}
+
 function setActiveNav(id){
   navLinks.forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === '#' + id);
@@ -1089,9 +1104,11 @@ if(window.location.hash){
 
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('resize', () => {
+  syncHeroTopOffset();
   updateActiveNav();
   if(currentProjectCategory === 'marketing' || currentProjectCategory === 'media') syncCategoryCardHeights(currentProjectCategory);
 });
+syncHeroTopOffset();
 updateActiveNav();
 setupProjectCardContent();
 fp('analytics', document.querySelector('.proj-filters .pf-btn'));
