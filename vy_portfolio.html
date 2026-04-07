@@ -17,7 +17,7 @@ img{max-width:100%;display:block;}
 }
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97);backdrop-filter:blur(12px);padding:env(safe-area-inset-top) clamp(16px,4vw,40px) 0;display:flex;justify-content:space-between;align-items:stretch;border-bottom:0.5px solid rgba(232,184,75,0.18);gap:12px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97);backdrop-filter:blur(12px);padding:env(safe-area-inset-top) clamp(16px,4vw,40px) 0;display:flex;justify-content:space-between;align-items:stretch;border-bottom:0.5px solid rgba(232,184,75,0.18);gap:12px;min-height:60px;}
 .nav-logo{font-size:15px;font-weight:900;color:#FDF8F2;letter-spacing:1px;display:flex;align-items:center;padding:16px 0;font-family:'Outfit',sans-serif;}
 .nav-logo span{color:var(--coral);}
 .nav-links{display:flex;gap:0;align-items:stretch;min-width:0;}
@@ -247,6 +247,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .sq-modal-role{font-size:13px;color:var(--coral);font-weight:700;}
 .sq-modal-desc{font-size:14px;color:#4A3A2A;line-height:1.7;margin-top:14px;}
 
+@media(min-width:1181px){
+  .hero{min-height:auto;}
+}
+
 @media(max-width:1180px){
   .adv-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .traits-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
@@ -315,14 +319,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 }
 
 @media(max-width:520px){
-  html{scroll-padding-top:102px;}
+  html{scroll-padding-top:92px;}
   nav{padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;}
   .nav-logo{font-size:13px;}
   .nav-open-text{font-size:10px;letter-spacing:0.8px;}
   .nav-links{gap:6px;padding-top:8px;}
   .nav-links a{padding:9px 11px;font-size:11px;}
   .nav-resume{width:100%;justify-content:center;margin:0!important;}
-  .hero{padding:calc(env(safe-area-inset-top) + 164px) 16px 28px;}
+  .hero{padding:calc(env(safe-area-inset-top) + 100px) 16px 28px;}
   .hero-badge{font-size:9px;letter-spacing:2px;padding:5px 12px;}
   .hero-title{letter-spacing:-1.4px;}
   .hs-n{font-size:20px;}
