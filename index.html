@@ -44,11 +44,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .hero-pic{width:170px;height:170px;margin:0 auto 16px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.18);box-shadow:0 22px 45px rgba(18,10,4,0.15);}
 .hero-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;}
 .hero-stats{display:flex;gap:0;border:0.5px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;max-width:620px;width:100%;position:relative;margin-top:auto;}
-.hs{flex:1;padding:16px 10px;text-align:center;border-right:0.5px solid rgba(255,255,255,0.06);cursor:pointer;transition:background 0.2s;text-decoration:none;color:inherit;}
+.hs{flex:1;padding:16px 10px;text-align:center;border-right:0.5px solid rgba(255,255,255,0.06);text-decoration:none;color:inherit;}
 .hs:last-child{border-right:none;}
-.hs:hover{background:rgba(224,122,82,0.08);}
+
 .hs-n{font-size:22px;font-weight:900;color:var(--gold);line-height:1;}
-.hs-l{font-size:9px;color:#9A7055;text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+.hs-l{font-size:9px;color:#FDF8F2;text-transform:uppercase;letter-spacing:1px;margin-top:3px;font-weight:600;}
 
 /* SECTIONS */
 .sec-wrap{padding:60px 0;}
@@ -58,6 +58,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .s-title{font-size:38px;font-weight:800;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;margin-bottom:6px;}
 .s-sub{font-family:'Lora',serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:32px;line-height:1.6;max-width:560px;}
 #about .s-sub{margin-bottom:18px;}
+#about{padding-bottom:26px;}
+#characteristics{padding-top:26px;}
 
 /* ABOUT */
 .char-card{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:0.5px solid var(--border);border-radius:18px;padding:20px 24px;margin-bottom:16px;}
@@ -75,7 +77,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .adv-btn{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:14px 14px;cursor:pointer;text-align:left;transition:all 0.2s;display:flex;flex-direction:column;gap:4px;text-decoration:none;}
 .adv-btn:hover{border-color:var(--coral);background:#FFF5F0;transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,122,82,0.09);}
 .adv-icon{font-size:20px;}
-.adv-t{font-size:12px;font-weight:700;color:var(--dark);}
+.adv-t{font-size:16px;font-weight:800;color:var(--dark);line-height:1.2;}
 .adv-s{font-size:10px;color:var(--muted);line-height:1.3;}
 .adv-st{font-size:9px;color:var(--coral);font-weight:700;margin-top:2px;}
 
@@ -85,8 +87,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .exp-card.visible{opacity:1;transform:translateY(0);}
 .exp-card:hover{border-color:var(--coral);transform:translateX(4px);}
 .exp-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0;}
-.exp-co{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:2px;}
-.exp-role{font-size:12px;font-weight:600;color:#6A5545;margin-bottom:3px;}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:3px;}
+.exp-co{font-size:18px;font-weight:900;color:var(--dark);line-height:1.2;letter-spacing:-0.2px;}
+.exp-date{font-size:11px;font-weight:700;color:#9A8A7A;white-space:nowrap;letter-spacing:0.6px;text-transform:uppercase;}
+.exp-role{font-size:16px;font-weight:700;color:#6A5545;margin-bottom:4px;line-height:1.25;}
 .exp-loc{font-size:11px;color:var(--muted);margin-bottom:10px;}
 .exp-impacts{display:flex;flex-direction:column;gap:4px;}
 .exp-impact{font-size:12px;color:#4A3A2A;line-height:1.45;padding-left:14px;position:relative;}
@@ -100,6 +104,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .proj-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
 .proj-card.visible{opacity:1;transform:translateY(0);}
 .proj-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,122,82,0.07);}
+.proj-img{width:100%;height:144px;object-fit:cover;border-radius:10px;display:block;margin-bottom:12px;}
 .proj-cat{font-size:9px;color:var(--coral);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
 .proj-name{font-size:12px;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:6px;}
 .proj-tools{font-size:10px;color:var(--muted);line-height:1.5;}
@@ -133,12 +138,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .trait.visible{opacity:1;transform:translateY(0);}
 .trait:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,122,82,0.07);}
 .trait-icon{font-size:24px;margin-bottom:8px;}
-.trait-name{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.trait-name{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:6px;line-height:1.2;}
 .trait-desc{font-size:11px;color:var(--muted);line-height:1.45;}
 
 /* WORLD */
 .world-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .world-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:24px;}
+.world-card.full-width{grid-column:1/-1;}
 .wc-icon{font-size:26px;margin-bottom:10px;}
 .wc-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:5px;}
 .wc-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:12px;}
@@ -249,6 +255,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   .di-text{font-size:14px;line-height:1.6;}
   .c-stats{grid-template-columns:repeat(3,1fr);}
   .char-card{flex-direction:column;}
+  .exp-head{flex-direction:column;gap:4px;}
+  .exp-date{white-space:normal;}
 }
 </style>
 </head>
@@ -288,13 +296,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   </div>
   <a href="#about" class="hero-cta">▶ &nbsp;Enter My World</a>
   <div class="hero-stats">
-    <a class="hs" href="#world"><div class="hs-n">6</div><div class="hs-l">countries</div></a>
-    <a class="hs" href="#experience"><div class="hs-n">8+</div><div class="hs-l">internships</div></a>
-    <a class="hs" href="#projects"><div class="hs-n">35+</div><div class="hs-l">projects</div></a>
-    <a class="hs" href="Vy Mai Le Transcript.pdf" download>
+    <div class="hs"><div class="hs-n">6</div><div class="hs-l">countries</div></div>
+    <div class="hs"><div class="hs-n">8+</div><div class="hs-l">internships</div></div>
+    <div class="hs"><div class="hs-n">35+</div><div class="hs-l">projects</div></div>
+    <div class="hs"><div class="hs-n">37</div><div class="hs-l">us states</div></div>
+    <div class="hs">
       <div class="hs-n">3.72</div>
       <div class="hs-l">gpa</div>
-    </a>
+    </div>
   </div>
 </div>
 
@@ -309,16 +318,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div>
       <div class="char-tag">Business Analytics · Marketing · Economics · Media Fellow · DePauw '26</div>
       <div class="char-name">Vy (Valerie) Le</div>
-      <div class="char-bio">I turn data into decisions — and I've done it at Pfizer, HP Tech Ventures, 1st Source Bank, World Wildlife Fund, Central Indiana Corporate Partnership, a London market research firm, and a Singapore tech startup. I've analyzed behavioral data from 10,000+ users, led a 300-person global summit, co-founded a startup that hit 40K views in 4 days, covered it all for my school newspaper, and managed a financial coaching brand's entire social media presence. I don't just study the world. I show up in it.</div>
+      <div class="char-bio"><strong>Data-driven. Founder-built. Results-focused.</strong><br>From Pfizer to HP Tech Ventures, I turn complex data into impact: analyzing behavior across 10,000+ users, leading global initiatives, and building a startup that reached 40K views in 4 days.</div>
     </div>
   </div>
-  <div class="c-stats fade-in">
-    <a class="cs-item" href="#world"><div class="cs-n">6 🌍</div><div class="cs-l">Countries</div></a>
-    <a class="cs-item" href="#experience"><div class="cs-n">8+ 💼</div><div class="cs-l">Internships</div></a>
-    <a class="cs-item" href="#world"><div class="cs-n">37 🚗</div><div class="cs-l">US States</div></a>
-    <a class="cs-item" href="#projects"><div class="cs-n">35+ 🧠</div><div class="cs-l">Projects</div></a>
-    <a class="cs-item" href="Vy Mai Le Transcript.pdf" download><div class="cs-n">3.72</div><div class="cs-l">GPA · Dean's List</div></a>
-  </div>
+
   <div class="adv-grid">
     <a href="#world" class="adv-btn fade-in"><div class="adv-icon">🌍</div><div class="adv-t">Move Countries</div><div class="adv-s">Vietnam · United States · United Kingdom · Germany · Singapore · Wales</div></a>
     <a href="#experience" class="adv-btn fade-in"><div class="adv-icon">💼</div><div class="adv-t">Take an Internship</div><div class="adv-s">Analytics, strategy, marketing & VC</div><div class="adv-st">8+ internships · 4 countries</div></a>
@@ -328,17 +331,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <a href="#sidequests" class="adv-btn fade-in"><div class="adv-icon">🎭</div><div class="adv-t">Side Quest Mode</div><div class="adv-s">Events, media, radio, writing & more</div><div class="adv-st">The roles that shaped everything</div></a>
     <a href="#projects" class="adv-btn fade-in" onclick="goToMediaProjects()"><div class="adv-icon">🎨</div><div class="adv-t">My Creative Side</div><div class="adv-s">Newspaper · Photography · Social Media Design</div><div class="adv-st">Many mediums, one voice</div></a>
     <a href="#characteristics" class="adv-btn fade-in"><div class="adv-icon">⚡</div><div class="adv-t">Character Stats</div><div class="adv-s">The traits people notice fast</div><div class="adv-st">How I work, think, and lead</div></a>
-    <a href="#future" class="adv-btn fade-in"><div class="adv-icon">🚀</div><div class="adv-t">5-10 Year Vision</div><div class="adv-s">Where I want to build and grow next</div><div class="adv-st">Big goals, global plans</div></a>
-    <a href="#contact" class="adv-btn fade-in" style="border-color:rgba(224,122,82,0.4);background:rgba(224,122,82,0.04);"><div class="adv-icon">☕</div><div class="adv-t">Let's Actually Talk</div><div class="adv-s">Book a coffee chat — pick any topic</div><div class="adv-st">Open to new conversations</div></a>
   </div>
-  <div id="future" class="dream-box fade-in" style="margin-top:40px;">
-    <div class="dream-q">"In 5 years, I want to be leading strategy and analytics at a company that's genuinely changing something — a high-growth startup, a global brand, or something I build myself. In 10 years? I want to have founded something that matters, led a team I'm proud of, and done it from at least two more countries I haven't lived in yet."</div>
-    <div class="dream-open" style="margin-top:28px;">Currently open to</div>
-    <div class="dream-grid" style="margin-top:16px;">
-      <div class="dream-item"><div class="di-icon">📊</div><div class="di-text">Business & Marketing Analytics roles where data drives real product and growth decisions</div></div>
-      <div class="dream-item"><div class="di-icon">🚀</div><div class="di-text">Strategy & consulting at the intersection of data, marketing, and business growth</div></div>
-      <div class="dream-item"><div class="di-icon">🌍</div><div class="di-text">Global or international roles — bonus if it comes with a new passport stamp</div></div>
-    </div>
+</div>
+</div>
+
+<!-- ░░ CHARACTERISTICS ░░ -->
+<div id="characteristics" class="sec-wrap alt">
+<div class="sec-inner">
+  <div class="s-label">⚡ Character Stats</div>
+  <div class="s-title">How I Think & Work.</div>
+  <div class="s-sub">Ask anyone who's worked with me. These come up every time.</div>
+  <div class="traits-grid">
+    <div class="trait fade-in"><div class="trait-icon">🔥</div><div class="trait-name">Relentlessly Curious</div><div class="trait-desc">I dig into how things work, why they matter, and what we should do about it</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🌍</div><div class="trait-name">Global Thinker</div><div class="trait-desc">Having lived in 6 countries, I naturally approach problems from multiple angles</div></div>
+    <div class="trait fade-in"><div class="trait-icon">⚡</div><div class="trait-name">High Energy, High Output</div><div class="trait-desc">I juggle internships, my own startup, and team leadership, and still show up excited on Monday</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🤝</div><div class="trait-name">People Magnet</div><div class="trait-desc">I connect easily with people everywhere: conferences, flights, even volcanic craters in Hawaii</div></div>
+    <div class="trait fade-in"><div class="trait-icon">📊</div><div class="trait-name">Data-Driven</div><div class="trait-desc">I test, measure, and iterate. But I know numbers don't tell the whole story.</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🚀</div><div class="trait-name">Builder Mentality</div><div class="trait-desc">I act on ideas: Grab Before Grad went from a shower thought to 40K views in 4 days</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🎨</div><div class="trait-name">Creative Strategist</div><div class="trait-desc">I lead with data but think in stories — the best insights are the ones people remember</div></div>
+    <div class="trait fade-in"><div class="trait-icon">🎯</div><div class="trait-name">Outcome-Obsessed</div><div class="trait-desc">I define success upfront, then work backwards to make it happen</div></div>
   </div>
 </div>
 </div>
@@ -346,21 +357,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 <!-- ░░ EXPERIENCE ░░ -->
 <div id="experience" class="sec-wrap alt">
 <div class="sec-inner">
-  <div class="s-label">💼 Internship Arc</div>
-  <div class="s-title">Where I've Been.</div>
+  <div class="s-label">💼 My Work Experiences</div>
+  <div class="s-title">Where I've Made an Impact.</div>
   <div class="s-sub">8 companies. 4 countries. Every industry I could get my hands on.</div>
   <div class="exp-list">
 
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#A89080;"></div>
       <div>
-        <div class="exp-co">APPE — Association for Practical & Professional Ethics</div>
-        <div class="exp-role">Communications & Events Intern</div>
-        <div class="exp-loc">📍 Greencastle, IN, USA · February 2026 – Present</div>
+        <div class="exp-head"><div class="exp-co">APPE — Association for Practical & Professional Ethics</div><div class="exp-date">Feb 2026 – Present</div></div>
+        <div class="exp-role">Communications & Analytics Intern</div>
+        <div class="exp-loc">📍 Greencastle, IN, USA</div>
         <div class="exp-impacts">
-          <div class="exp-impact">Draft and edit content for email campaigns, newsletters, and website updates for a professional ethics-focused audience</div>
-          <div class="exp-impact">Analyzed membership and participation data in Excel/Google Sheets, creating visual summaries for retention and conference planning</div>
-          <div class="exp-impact">Assist in full-cycle event management for the APPE Annual Conference (in-person + virtual audiences)</div>
+          <div class="exp-impact">Analyzed 1,000+ membership and engagement records (500+ attendees) to identify retention drivers and inform conference strategy.</div>
+          <div class="exp-impact">Drove digital engagement through email and content optimization, increasing reach and interaction by 20%+.</div>
+          <div class="exp-impact">Synthesized post-event feedback into actionable insights, improving programming and attendee experience.</div>
         </div>
       </div>
     </div>
@@ -368,13 +379,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#E07A52;"></div>
       <div>
-        <div class="exp-co">iMin Technology / KiwiCloud</div>
+        <div class="exp-head"><div class="exp-co">iMin Technology / KiwiCloud</div><div class="exp-date">Aug – Dec 2025</div></div>
         <div class="exp-role">Go-To-Market Strategy & Sales Enablement Analyst</div>
-        <div class="exp-loc">📍 Singapore (Remote) · August – December 2025</div>
+        <div class="exp-loc">📍 Singapore (Remote)</div>
         <div class="exp-impacts">
-          <div class="exp-impact">Developed full U.S. SMB/mid-market GTM strategy for KiwiCloud UEM platform — competitor analysis, pricing, ideal customer profiles</div>
-          <div class="exp-impact">Built sales enablement materials: How to Sell KiwiCloud, vertical messaging, discovery frameworks, ROI/TCO positioning</div>
-          <div class="exp-impact">Created workflow visuals and policy engine diagrams used by product, sales engineering, and leadership for U.S. expansion</div>
+          <div class="exp-impact">Developed U.S. SMB/mid-market go-to-market strategy for KiwiCloud's UEM platform, conducting competitor analysis, pricing modeling, and ideal customer profiling to support expansion into 100+ target accounts.</div>
+          <div class="exp-impact">Built sales enablement materials and KiwiCloud Academy content, training 50+ sales reps and partners, improving messaging adoption and shortening onboarding time by 25%.</div>
+          <div class="exp-impact">Designed ROI/TCO frameworks, policy engine diagrams, and workflow visuals used by product, sales engineering, and leadership, enabling faster deal qualification and increasing sales efficiency by 15%.</div>
         </div>
       </div>
     </div>
@@ -382,13 +393,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#E07A52;"></div>
       <div>
-        <div class="exp-co">Pfizer</div>
+        <div class="exp-head"><div class="exp-co">Pfizer</div><div class="exp-date">Jun – Aug 2025</div></div>
         <div class="exp-role">Global Commercial Analytics Intern</div>
-        <div class="exp-loc">📍 New York, NY, USA · June – August 2025</div>
+        <div class="exp-loc">📍 New York, NY, USA</div>
         <div class="exp-impacts">
-          <div class="exp-impact">Led a cross-functional team of 8 to design and execute Pfizer's largest GCA Summit — 300+ global leaders and executives</div>
-          <div class="exp-impact">Conducted 10+ stakeholder interviews; delivered redesigned PM framework adopted by 50+ global managers</div>
-          <div class="exp-impact">Mapped PMR regulatory approval requirements across 12+ countries to improve cross-border planning</div>
+          <div class="exp-impact">Led development of a strategic blueprint for Pfizer's Program Management & Planning function by interviewing 10+ stakeholders, creating an updated project framework that supports 50+ global program managers with clearer alignment to commercial objectives.</div>
+          <div class="exp-impact">Directed an 8-person Experience Architects team to design and deliver the GCA Elevate Summit, Pfizer's largest annual Global Commercial Analytics event, hosting 300+ attendees and shaping agenda, theme, and speaker flow.</div>
+          <div class="exp-impact">Conducted market research across 12+ countries to document Product Market Research (PMR) approval requirements, improving cross-border regulatory visibility and streamlining future submissions.</div>
         </div>
       </div>
     </div>
@@ -396,13 +407,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#5AA3C8;"></div>
       <div>
-        <div class="exp-co">Central Indiana Corporate Partnership — Ascend Indiana</div>
+        <div class="exp-head"><div class="exp-co">Central Indiana Corporate Partnership — Ascend Indiana</div><div class="exp-date">Jan – Apr 2025</div></div>
         <div class="exp-role">Product Marketing Intern</div>
-        <div class="exp-loc">📍 Indianapolis, IN, USA · January – April 2025</div>
+        <div class="exp-loc">📍 Indianapolis, IN, USA</div>
         <div class="exp-impacts">
-          <div class="exp-impact">Boosted user engagement 20% by analyzing behavioral data from 10,000+ users with Mixpanel and delivering product insights</div>
-          <div class="exp-impact">Designed and executed 3 A/B tests (personalized invites, progress nudges), raising profile completion rates by 15%</div>
-          <div class="exp-impact">Defined and monitored 13+ core KPIs — boosted job seeker engagement 25% and employer interaction 18%</div>
+          <div class="exp-impact">Analyzed data from 10,000+ users using Mixpanel, uncovering insights that informed A/B tests and product improvements, boosting engagement by 20%+ and profile completion by 15%.</div>
+          <div class="exp-impact">Defined 13+ key metrics and conducted scraped vs. manual job posting analysis, contributing to a quality score model that increased job seeker engagement 25% and employer interaction 18%.</div>
+          <div class="exp-impact">Delivered actionable dashboards and reports to cross-functional teams, enabling data-driven decisions that improved platform experience and job matching efficiency by 20%.</div>
         </div>
       </div>
     </div>
@@ -410,9 +421,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#5AA3C8;"></div>
       <div>
-        <div class="exp-co">HP Tech Ventures</div>
+        <div class="exp-head"><div class="exp-co">HP Tech Ventures</div><div class="exp-date">Nov 2024 – Jan 2025</div></div>
         <div class="exp-role">Deal Sourcing & Startup Analysis Intern</div>
-        <div class="exp-loc">📍 Remote · November 2024 – January 2025</div>
+        <div class="exp-loc">📍 Remote</div>
         <div class="exp-impacts">
           <div class="exp-impact">Sourced and evaluated 100+ early-stage startups across SaaS, AI, and consumer tech via Crunchbase, AngelList & PitchBook</div>
           <div class="exp-impact">Conducted due diligence on 8 high-potential startups — built 5 market sizing models and 3 competitor benchmarking analyses</div>
@@ -424,9 +435,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#5AA3C8;"></div>
       <div>
-        <div class="exp-co">Hub of China</div>
+        <div class="exp-head"><div class="exp-co">Hub of China</div><div class="exp-date">Sep – Dec 2024</div></div>
         <div class="exp-role">Market Research Analysis Intern</div>
-        <div class="exp-loc">📍 London, UK · September – December 2024</div>
+        <div class="exp-loc">📍 London, UK</div>
         <div class="exp-impacts">
           <div class="exp-impact">Delivered 3 global market analyses providing actionable entry strategies that informed 2 successful product launches in Vietnam</div>
           <div class="exp-impact">Enhanced marketing profiles with consumer insights, driving 15% increase in engagement across digital platforms</div>
@@ -438,9 +449,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#6AAB7B;"></div>
       <div>
-        <div class="exp-co">1st Source Bank</div>
+        <div class="exp-head"><div class="exp-co">1st Source Bank</div><div class="exp-date">May – Aug 2024</div></div>
         <div class="exp-role">Marketing Analytics & IT Intern</div>
-        <div class="exp-loc">📍 South Bend, IN, USA · May – August 2024</div>
+        <div class="exp-loc">📍 South Bend, IN, USA</div>
         <div class="exp-impacts">
           <div class="exp-impact">Improved customer satisfaction forecasting accuracy by 25% using regression analysis in Predict IQ and Stats IQ (Qualtrics)</div>
           <div class="exp-impact">Produced 5 Power BI dashboards covering competitor closures, new account trends, and consumer loan analysis</div>
@@ -452,13 +463,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="exp-card fade-in">
       <div class="exp-dot" style="background:#6AAB7B;"></div>
       <div>
-        <div class="exp-co">World Wildlife Fund (WWF)</div>
-        <div class="exp-role">Data Analytics Intern — Knowledge Product Development</div>
-        <div class="exp-loc">📍 Hanoi, Vietnam · May – August 2023</div>
+        <div class="exp-head"><div class="exp-co">World Wildlife Fund (WWF)</div><div class="exp-date">May – Aug 2023</div></div>
+        <div class="exp-role">Data Analytics & Reporting Intern</div>
+        <div class="exp-loc">📍 Hanoi, Vietnam</div>
         <div class="exp-impacts">
-          <div class="exp-impact">Supported one of the world's largest environmental NGOs — WWF operates across 100+ countries with a global conservation mission</div>
-          <div class="exp-impact">Streamlined Carbi initiative reporting, improving data accessibility for 20+ field teams across Southeast Asia</div>
-          <div class="exp-impact">Developed 10+ reports and an internal OD website; drove 30% reporting efficiency improvement through standardized workflows</div>
+          <div class="exp-impact">Streamlined reporting for WWF's Carbi initiative by creating 10+ reports and an internal site, improving data accessibility for 20+ field teams across Southeast Asia.</div>
+          <div class="exp-impact">Enhanced project tracking using Excel and Google Sheets dashboards, making conservation outcomes easier to monitor, visualize, and present.</div>
+          <div class="exp-impact">Boosted reporting efficiency by 30% through standardized templates and improved cross-office communication, enabling faster delivery of actionable insights.</div>
         </div>
       </div>
     </div>
@@ -474,8 +485,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="s-title">What I've Built.</div>
   <div class="s-sub">35+ projects spanning analytics, strategy, marketing, VC research, and media. Click any bubble to view or download.</div>
   <div class="proj-filters">
-    <button class="pf-btn active" onclick="fp('all',this)">All</button>
-    <button class="pf-btn" onclick="fp('analytics',this)">Analytics</button>
+    <button class="pf-btn active" onclick="fp('analytics',this)">Analytics</button>
     <button class="pf-btn" onclick="fp('strategy',this)">Strategy</button>
     <button class="pf-btn" onclick="fp('marketing',this)">Marketing</button>
     <button class="pf-btn" onclick="fp('vc',this)">Venture Capital</button>
@@ -484,28 +494,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   </div>
   <div class="proj-grid" id="pgrid">
     <!-- ANALYTICS -->
-    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">1st Source Bank Customer Satisfaction Modeling</div><div class="proj-tools">Predict IQ · Stats IQ · Regression · Power BI</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Ascend Indiana User Engagement Analysis</div><div class="proj-tools">Mixpanel · Behavioral Analytics · 10,000+ Users · Product Insights</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <a class="proj-link" href="Beautiful Homes Inc. Case.pdf" download="Beautiful Homes Inc. Case.pdf"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Beautiful Homes Inc. Business Case — Excel Analysis</div><div class="proj-tools">Data Visualization · Financial Analysis · Trend Analysis · Excel · Business Insights</div></div></a>
-    <a class="proj-link" href="Comparative Analysis of Concert Performance - Vy (Valerie) Le.zip" download="Comparative Analysis of Concert Performance - Vy (Valerie) Le.zip"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Beyoncé &amp; Taylor Swift Concert Ticket Sales Analysis</div><div class="proj-tools">Python · Regression · Data Visualization</div></div></a>
-    <div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">D3TV Content Performance Dashboards (50+ weekly)</div><div class="proj-tools">Tableau · Google Analytics · Social Insights</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <a class="proj-link" href="ROR on Education.pdf" download="ROR on Education.pdf"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Does Education Pay Off Equally for Men &amp; Women?</div><div class="proj-tools">Stata · OLS Regression · IPUMS CPS Data · Excel · FRED Data · Interaction Terms</div><div class="proj-note">OLS regression on 3,795 obs — found men earn 28.9% more, but the gap narrows 1.46% per education year and closes entirely after ~20 years of schooling.</div></div></a>
-    <a class="proj-link" href="DoorDash Case.zip" download="DoorDash Case.zip"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">DoorDash Case — RFM Segmentation &amp; Response Analysis</div><div class="proj-tools">Python · pandas · NumPy · seaborn · matplotlib · RFM Quintiles · Campaign Response Modeling</div><div class="proj-note">Built recency-frequency-monetary segments and visualized response patterns to identify higher-value customer groups for targeting.</div></div></a>
-    <a class="proj-link" href="EDA_Analysis_for_Stock_Market_Vy_(Valerie)_Mai_Le.ipynb" download="EDA_Analysis_for_Stock_Market_Vy_(Valerie)_Mai_Le.ipynb"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">EDA Analysis for Stock Market</div><div class="proj-tools">Python · Time Series EDA · Feature Analysis · Market Trend Exploration</div></div></a>
-    <a class="proj-link" href="Exploratory Data Analysis (EDA) for Asset Price Analysis.zip" download="Exploratory Data Analysis (EDA) for Asset Price Analysis.zip"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">EDA for Asset Price Prediction</div><div class="proj-tools">Python · Statistical Modeling · Feature Engineering</div></div></a>
-    <a class="proj-link" href="Housing Price Prediction.zip" download="Housing Price Prediction.zip"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Housing Price Prediction — Linear Regression Modeling</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Linear Regression · Excel</div><div class="proj-note">Built and compared regression models with preprocessing, imputation, dummy encoding, and performance checks using RMSE and R-squared.</div></div></a>
-    <a class="proj-link" href="IKEA Case.zip" download="IKEA Case.zip"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">IKEA Case — Personalized Messaging Profit Optimization</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · seaborn · matplotlib · Profit Simulation</div><div class="proj-note">Modeled category-level response and expected profit to compare personalized vs. fixed campaign strategies across IKEA product departments.</div></div></a>
-    <a class="proj-link" href="Peer-to-peer lending platform analysis.zip" download="Peer-to-peer lending platform analysis.zip"><div class="proj-card fade-in" data-cat="analytics"><div class="proj-cat">Analytics</div><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">End-to-end credit risk pipeline: preprocessing, feature engineering, OLS baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1HvOAKhkCrOdGQFgnJQWOENlhdTBgaenR/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Men%20%26%20Women%20Education.webp" alt="Graduation illustration for education earnings analysis"><div class="proj-name">Does Education Pay Off Equally for Men &amp; Women?</div><div class="proj-tools">Stata · OLS Regression · IPUMS CPS Data · Excel · FRED Data · Interaction Terms</div><div class="proj-note">OLS regression on 3,795 obs — found men earn 28.9% more, but the gap narrows 1.46% per education year and closes entirely after ~20 years of schooling.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/1QJNBvyoLGuZP5P6QPIE80CHmjioS32xj?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="DoorDash%20.jpeg" alt="DoorDash logo shown on a phone screen"><div class="proj-name">DoorDash Case — RFM Segmentation &amp; Response Analysis</div><div class="proj-tools">Python · pandas · NumPy · seaborn · matplotlib · RFM Quintiles · Campaign Response Modeling</div><div class="proj-note">Built recency-frequency-monetary segments and visualized response patterns to identify higher-value customer groups for targeting.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/16rjlhlZ2nTagjxdYrM66-JE-9mNmMJAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Housing%20Price.jpg" alt="House with market trend arrows for housing price analysis"><div class="proj-name">Housing Price Prediction — Linear Regression Modeling</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Linear Regression · Excel</div><div class="proj-note">Built and compared regression models with preprocessing, imputation, dummy encoding, and performance checks using RMSE and R-squared.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/1Zqq-nEyXZNW0IQ-Zp6WpaV3eBjPvhBvS?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="IKEA.jpg" alt="IKEA message mockup on a phone screen"><div class="proj-name">IKEA Case — Personalized Messaging Profit Optimization</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · seaborn · matplotlib · Profit Simulation</div><div class="proj-note">Modeled category-level response and expected profit to compare personalized vs. fixed campaign strategies across IKEA product departments.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/1k2CovChWSvZJQLnd28FNlFRS3cnAOQbm?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="P2P%20platform.jpg" alt="Handshake graphic representing peer-to-peer lending"><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">End-to-end credit risk pipeline: preprocessing, feature engineering, OLS baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
     <!-- DESIGN -->
     <a class="proj-link" href="Five Forgers' Poster.pdf" download="Five Forgers' Poster.pdf"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Design</div><div class="proj-name">KiwiCloud Poster Design</div><div class="proj-tools">Poster Design · Brand Messaging · Visual Layout</div></div></a>
     <a class="proj-link" href="https://drive.google.com/drive/folders/1ueoC5B4TKXxfVpEhWqhSezu6yB1ESlpM?usp=share_link" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Design</div><div class="proj-name">Social Media Designs — Beyond the Green Coaching · DePauw Marketing Club · Grab Before Grad</div><div class="proj-tools">Canva · Content Strategy · Brand Voice · Visual Design</div></div></a>
     <!-- MARKETING -->
-    <div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">1st Source Bank Promotional Campaign Strategy (×5)</div><div class="proj-tools">SQL · Cognos · Daybreak Analytics · Power BI · Segmentation</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">A/B Test Suite — Ascend Indiana Profile Completion</div><div class="proj-tools">Experimental Design · Conversion Optimization · Mixpanel</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">Hub of China Digital Engagement Growth Strategy</div><div class="proj-tools">Consumer Insights · Profile Optimization · Analytics</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <a class="proj-link" href="Valerie (Vy) Le - NYT Advertising &amp; Audience Insights Sample Case.pdf" download="Valerie (Vy) Le - NYT Advertising &amp; Audience Insights Sample Case.pdf"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">NYT Advertising &amp; Audience Insights — Sample Case Study</div><div class="proj-tools">Audience Segmentation · Ad Strategy · Media Analytics · Consumer Research</div></div></a>
-    <a class="proj-link" href="Empowering Indiana_ My Vision for Product Marketing at Ascend Indiana.pdf" download="Empowering Indiana_ My Vision for Product Marketing at Ascend Indiana.pdf"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">Product Marketing Vision — Empowering Indiana with Ascend</div><div class="proj-tools">GTM Strategy · User Persona Development · Talent Branding · Workforce Growth Campaigns</div></div></a>
-    <a class="proj-link" href="Vy (Valerie) Mai Le - MeFe Senior Project.pdf" download="Vy (Valerie) Mai Le - MeFe Senior Project.pdf"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">What Makes Brands Popular?</div><div class="proj-tools">Brand Analysis · Social Media Analytics · Consumer Psychology · EMV Modeling · Revenue Trends</div><div class="proj-note">Case studies: Lululemon · Stanley 1913 · Summer Fridays · Parke — uncovering the patterns behind viral growth and premium pricing.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1INbdccPBiNMKX8wxNdg5vYHpm94AoBES/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">NYT Advertising &amp; Audience Insights — Sample Case Study</div><div class="proj-tools">Audience Segmentation · Ad Strategy · Media Analytics · Consumer Research</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1QW4sWBG1EY0NYUys5CD81bUiYnPR104Q/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">Product Marketing Vision — Empowering Indiana with Ascend</div><div class="proj-tools">GTM Strategy · User Persona Development · Talent Branding · Workforce Growth Campaigns</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/17mHEeFAnka1jdcw8KlcV-7JwtDDpTGgY/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">What Makes Brands Popular?</div><div class="proj-tools">Brand Analysis · Social Media Analytics · Consumer Psychology · EMV Modeling · Revenue Trends</div><div class="proj-note">Case studies: Lululemon · Stanley 1913 · Summer Fridays · Parke — uncovering the patterns behind viral growth and premium pricing.</div></div></a>
     <!-- MEDIA -->
     <a class="proj-link" href="https://thedepauw.com/staff_name/mai-vy-le/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Media</div><div class="proj-name">The DePauw Newspaper</div><div class="proj-tools">Editorial Leadership · Copywriting · Production Management</div></div></a>
     <!-- PHOTOGRAPHY -->
@@ -514,15 +514,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <!-- STARTUP & ENTREPRENEURSHIP -->
     <a class="proj-link" href="https://www.instagram.com/grab_before_grad26/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="startup"><div class="proj-cat">Startup &amp; Entrepreneurship</div><div class="proj-name">Grab Before Grad — Multi-Vendor Resale Platform</div><div class="proj-tools">Platform Launch · Growth Marketing · Ops · Events (500+ attendees)</div></div></a>
     <!-- STRATEGY -->
-    <a class="proj-link" href="Vy(Valerie)_Le_Enterprise Architecture Analyst.pdf" download="Vy(Valerie)_Le_Enterprise Architecture Analyst.pdf"><div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Adobe — Enterprise Architecture Analyst Case Study</div><div class="proj-tools">Enterprise Architecture · Process Design · Systems Thinking · Strategic Roadmapping</div></div></a>
-    <a class="proj-link" href="My Vision for Affordable Housing in Illinois_ Strategic Insights &amp; Data-Driven Solutions through the IHDA Asset Management Intern Role.pdf" download="My Vision for Affordable Housing in Illinois_ Strategic Insights &amp; Data-Driven Solutions through the IHDA Asset Management Intern Role.pdf"><div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Affordable Housing Strategy — IHDA Asset Management</div><div class="proj-tools">Housing Policy · Financial Analysis · Data Visualization · Community Impact Framework</div></div></a>
-    <a class="proj-link" href="How to sell Kiwicloud.pdf" download="How to sell Kiwicloud.pdf"><div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">KiwiCloud U.S. Go-To-Market Playbook</div><div class="proj-tools">Sales Strategy · ICP Segmentation · Messaging Framework</div></div></a>
-    <a class="proj-link" href="U.S. Market &amp; Competitor Map.pdf" download="U.S. Market &amp; Competitor Map.pdf"><div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">KiwiCloud U.S. Market &amp; Competitor Map</div><div class="proj-tools">Competitive Analysis · Market Segmentation · UEM Landscape</div></div></a>
-    <a class="proj-link" href="Lululemon Case.zip" download="Lululemon Case.zip"><div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Lululemon — Brand Strategy &amp; Business Case Analysis</div><div class="proj-tools">Brand Strategy · Competitive Analysis · Business Case · Market Positioning</div></div></a>
-    <a class="proj-link" href="Health Economics Policy Recommendations.pdf" download="Health Economics Policy Recommendations.pdf"><div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Mental Health Policy Framework — UK Health Economics Analysis</div><div class="proj-tools">Health Economics · Policy Design · Quantitative Analysis · Evidence-Based Recommendations</div><div class="proj-note">ECN369 capstone: Addressing mental health disorders through early intervention, stigma reduction, and digital health integration using the Grossman model.</div></div></a>
-    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Pfizer GCA Program Management Blueprint</div><div class="proj-tools">Framework Redesign · Stakeholder Management · Documentation</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Pfizer PMR Regulatory Mapping (12+ Countries)</div><div class="proj-tools">Stakeholder Interviews · Process Design · SharePoint</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
-    <div class="proj-card fade-in" data-cat="strategy"><div class="proj-cat">Strategy</div><div class="proj-name">Vietnamese Energy Drink Market Entry Strategy</div><div class="proj-tools">Consumer Research · Competitive Analysis · Market Sizing</div><div class="proj-note">Confidential project: details and data cannot be shared publicly.</div></div>
+    <a class="proj-link" href="https://drive.google.com/file/d/1-akdfZjHtgd8MVA4NdQ1r-f2eURSjNd1/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Adobe.jpeg" alt="Adobe-themed illustration with a robot painting at an easel"><div class="proj-cat">Strategy</div><div class="proj-name">Adobe — Enterprise Architecture Analyst Case Study</div><div class="proj-tools">Enterprise Architecture · Process Design · Systems Thinking · Strategic Roadmapping</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1hHbYTQeWT-T8dDhuNZep8zmsOA7pdlzT/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="IHDA.webp" alt="Family standing in front of a house protected by large hands"><div class="proj-cat">Strategy</div><div class="proj-name">Affordable Housing Strategy — IHDA Asset Management</div><div class="proj-tools">Housing Policy · Financial Analysis · Data Visualization · Community Impact Framework</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/1xnfTINWpkHzT_sdTyZCAVdVG-3fq4dAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Lululemon.jpg" alt="Lululemon storefront photo"><div class="proj-cat">Strategy</div><div class="proj-name">Lululemon — Brand Strategy &amp; Business Case Analysis</div><div class="proj-tools">Brand Strategy · Competitive Analysis · Business Case · Market Positioning</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1mCFvhDpGc7IlRordSzNQlbSeQuYE87g5/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="UK%20Health.webp" alt="Doctor holding a chart about value and cost in healthcare"><div class="proj-cat">Strategy</div><div class="proj-name">Mental Health Policy Framework — UK Health Economics Analysis</div><div class="proj-tools">Health Economics · Policy Design · Quantitative Analysis · Evidence-Based Recommendations</div><div class="proj-note">ECN369 capstone: Addressing mental health disorders through early intervention, stigma reduction, and digital health integration using the Grossman model.</div></div></a>
     <!-- VENTURE CAPITAL -->
     <a class="proj-link" href="Notion Investment Memo.pdf" download="Notion Investment Memo.pdf"><div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Notion — Market Thesis &amp; Recommendation</div><div class="proj-tools">Market Sizing · Competitive Benchmarking · Investment Recommendation</div></div></a>
     <a class="proj-link" href="Investment Memo.pdf" download="Investment Memo.pdf"><div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Vitro3D — Market Thesis &amp; Recommendation</div><div class="proj-tools">Market Sizing · Competitive Benchmarking · Investment Recommendation</div></div></a>
@@ -573,7 +568,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 <div id="sidequests" class="sec-wrap">
 <div class="sec-inner">
   <div class="s-label">🎭 Side Quest Mode</div>
-  <div class="s-title">The Roles That Made Me.</div>
+  <div class="s-title">Fun Jobs That Shaped Me.</div>
   <div class="s-sub">These weren't on the main path — they were the detours that turned out to matter most.</div>
   <div class="sq-hint">Swipe to explore all 9 side quests →</div>
   <div class="sq-grid">
@@ -592,6 +587,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
       <div class="sq-role">Asst. Director of Analytics & Social Media</div>
       <div class="sq-desc">Built data reporting systems from scratch. 50+ weekly Tableau dashboards tracking viewership and engagement. Implemented Google Analytics pipelines delivering real-time audience data across departments in under 48 hours. Turned viewer behavior into content decisions — and it worked: +25% engagement across all platforms.</div>
       <div class="sq-badge">1.5 years · Data-driven content strategy</div>
+    </div>
+
+    <div class="sq-card fade-in">
+      <div class="sq-icon">💚</div>
+      <div class="sq-title">Beyond the Green Coaching</div>
+      <div class="sq-role">Social Media & Content Intern</div>
+      <div class="sq-desc">Managed the full social media and content presence for a financial coaching agency. Created content calendars, wrote copy, designed graphics, tracked engagement analytics, and built brand voice for a growing coaching business. Where financial literacy meets scroll-stopping content.</div>
+      <div class="sq-badge">Current · Social Media & Marketing</div>
     </div>
 
     <div class="sq-card fade-in">
@@ -616,14 +619,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
       <div class="sq-role">Disk Jockey · Your Sound Alternative</div>
       <div class="sq-desc">On-air DJ for DePauw's student radio station. Curated playlists, hosted live shows, spoke into a mic for a real audience. Because apparently running analytics and playing music on the radio aren't mutually exclusive. Another form of storytelling — just with better soundtracks.</div>
       <div class="sq-badge">1 year · Live on-air</div>
-    </div>
-
-    <div class="sq-card fade-in">
-      <div class="sq-icon">💚</div>
-      <div class="sq-title">Beyond the Green Coaching</div>
-      <div class="sq-role">Social Media & Content Intern</div>
-      <div class="sq-desc">Managed the full social media and content presence for a financial coaching agency. Created content calendars, wrote copy, designed graphics, tracked engagement analytics, and built brand voice for a growing coaching business. Where financial literacy meets scroll-stopping content.</div>
-      <div class="sq-badge">Current · Social Media & Marketing</div>
     </div>
 
     <div class="sq-card fade-in">
@@ -669,39 +664,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     </div>
   </div>
 
-<!-- ░░ CHARACTERISTICS ░░ -->
-<div id="characteristics" class="sec-wrap alt">
-<div class="sec-inner">
-  <div class="s-label">⚡ Character Stats</div>
-  <div class="s-title">What Makes Me, Me.</div>
-  <div class="s-sub">Ask anyone who's worked with me. These come up every time.</div>
-  <div class="traits-grid">
-    <div class="trait fade-in"><div class="trait-icon">🔥</div><div class="trait-name">Relentlessly Curious</div><div class="trait-desc">I want to understand everything — how it works, why it matters, and what we can do about it</div></div>
-    <div class="trait fade-in"><div class="trait-icon">🌍</div><div class="trait-name">Global Thinker</div><div class="trait-desc">Having lived in 6 countries means I naturally consider multiple angles before making any call</div></div>
-    <div class="trait fade-in"><div class="trait-icon">⚡</div><div class="trait-name">High Energy, High Output</div><div class="trait-desc">I'm the person with 3 internships at the same time, a startup, team management, and still shows up excited on Monday</div></div>
-    <div class="trait fade-in"><div class="trait-icon">🤝</div><div class="trait-name">People Magnet</div><div class="trait-desc">I make friends everywhere — on planes, at conferences, at volcanic craters in Hawaii. Everyone is interesting.</div></div>
-    <div class="trait fade-in"><div class="trait-icon">📊</div><div class="trait-name">Data-Driven</div><div class="trait-desc">I don't guess — I test, measure, iterate, and measure again. But I know numbers don't tell the whole story.</div></div>
-    <div class="trait fade-in"><div class="trait-icon">🚀</div><div class="trait-name">Builder Mentality</div><div class="trait-desc">I see a gap and I fill it. Grab Before Grad started as a shower thought and hit 40K views in 4 days.</div></div>
-    <div class="trait fade-in"><div class="trait-icon">🎨</div><div class="trait-name">Creative Strategist</div><div class="trait-desc">I lead with analytics but I think in stories — the best insights are the ones people actually remember</div></div>
-    <div class="trait fade-in"><div class="trait-icon">🎯</div><div class="trait-name">Outcome-Obsessed</div><div class="trait-desc">I don't just complete tasks. I define what success looks like, then work backwards from there.</div></div>
-  </div>
-</div>
-</div>
-
 <!-- ░░ WORLD ░░ -->
 <div id="world" class="sec-wrap">
 <div class="sec-inner">
   <div class="s-label">🌏 Off the Clock</div>
-  <div class="s-title">My World.</div>
+  <div class="s-title">Life Beyond Work.</div>
   <div class="s-sub">The stuff that makes the work worth doing — and makes me better at it.</div>
   <div class="world-grid">
-    <div class="world-card fade-in">
+    <div class="world-card full-width fade-in">
       <div class="wc-icon">🗺️</div>
       <div class="wc-title">I've been to 37 US States & 15 National Parks</div>
       <div class="wc-desc">Road trips are my reset button. I’ve driven through deserts, hiked through snow, chased waterfalls, and found the best food in the most unexpected places.</div>
       <div class="place-row" id="sc"></div>
     </div>
-    <div class="world-card fade-in">
+    <div class="world-card full-width fade-in">
       <div class="wc-icon">🌍</div>
       <div class="wc-title">Cities I've Called Home</div>
       <div class="wc-desc">Not just visited — actually lived, worked, and studied. Each city rewired how I think.</div>
@@ -712,7 +688,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="world-card fade-in">
       <div class="wc-icon">🥾</div>
       <div class="wc-title">Hiking & The Outdoors</div>
-      <div class="wc-desc">Volcanoes in Hawaii. Grand Teton in Wyoming. Waterfalls in the Pacific Northwest. I believe the best views are the ones you earn. Car camping is also a legitimate art form.</div>
+      <div class="wc-desc">From Hawaiian volcanoes to the Grand Tetons and Pacific Northwest waterfalls, I chase earned views. Car camping counts as art.</div>
     </div>
     <div class="world-card fade-in">
       <div class="wc-icon">📸</div>
@@ -722,12 +698,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="world-card fade-in">
       <div class="wc-icon">🍜</div>
       <div class="wc-title">Food & Culture</div>
-      <div class="wc-desc">The fastest way to understand a new place is through its food. I've eaten my way through Vietnam, United Kingdom, Germany, Wales, Hawaii, NYC, and approximately 40 states worth of local diners.</div>
+      <div class="wc-desc">The fastest way to know a place is through its food. I've eaten my way through Vietnam, the UK, Germany, Wales, Hawaii, NYC, and ~40 U.S. states.</div>
     </div>
     <div class="world-card fade-in">
       <div class="wc-icon">🩰</div>
       <div class="wc-title">Ballet, Sculpture & the Arts</div>
-      <div class="wc-desc">Classical ballet taught me discipline, precision, and how to perform under pressure — all of which show up at work constantly. Also: sculpture, because creativity shouldn't have one lane :)</div>
+      <div class="wc-desc">Classical ballet taught me discipline and precision. Sculpture keeps my creativity flexible — all skills I bring to work.</div>
     </div>
   </div>
 </div>
@@ -741,24 +717,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="c-sub">"I give great coffee chats. Ask me anything — I'll give you a real answer, not a rehearsed one."</div>
   <div class="topics-label">Pick a topic and let's go:</div>
   <div class="topics">
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🏔️ My favorite national park (hot take incoming)" class="topic">🏔️ My favorite national park (hot take incoming)</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 📊 My wildest data project" class="topic">📊 My wildest data project</a>
     <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🚀 My startup origin story" class="topic">🚀 My startup origin story</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 📈 Investing & Robinhood strategies" class="topic">📈 Investing & Robinhood strategies</a>
+    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 📊 My wildest data project" class="topic">📊 My wildest data project</a>
     <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🌍 What living in 6 countries actually teaches you" class="topic">🌍 What living in 6 countries actually teaches you</a>
     <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 💼 Breaking into analytics without a CS degree" class="topic">💼 Breaking into analytics without a CS degree</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🎯 My honest 5-year plan" class="topic">🎯 My honest 5-year plan</a>
     <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🛣️ Best U.S. road trip I've done (ranked)" class="topic">🛣️ Best U.S. road trip I've done (ranked)</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🍜 Best food city I've ever been to" class="topic">🍜 Best food city I've ever been to</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 📢 Marketing" class="topic">📢 Marketing</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about ☕ Just want to say hi" class="topic">☕ Just want to say hi</a>
   </div>
   <a href="https://calendly.com/lemaivy2004/30min" target="_blank" class="coffee-cta">☕ &nbsp;Book a Coffee Chat</a>
   <div class="social-row">
     <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" class="soc-link">LinkedIn</a>
     <a href="mailto:lemaivy2004@gmail.com" class="soc-link">Email</a>
     <a href="https://www.instagram.com/le_maivyy/" target="_blank" class="soc-link">Instagram</a>
-    <a href="https://www.facebook.com/lemaivyy/" target="_blank" class="soc-link">Facebook</a>
     <a href="Vy Mai Le Resume.pdf" class="soc-link" download>Resume ↓</a>
   </div>
   <div class="footer-quote">"Trust the process 🌻" — Vy · Valerie · Le</div>
@@ -979,6 +948,7 @@ if(window.location.hash){
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('resize', updateActiveNav);
 updateActiveNav();
+fp('analytics', document.querySelector('.proj-filters .pf-btn'));
 </script>
 </body>
 </html>
