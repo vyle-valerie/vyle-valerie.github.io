@@ -8,7 +8,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;scroll-padding-top:60px;}
-body{font-family:'Outfit',sans-serif;background:#FDF8F2;color:#1E1208;overflow-x:hidden;}
+body{font-family:'Outfit',sans-serif;background:#FDF8F2;color:#1E1208;overflow-x:hidden;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;}
+img{max-width:100%;display:block;}
 :root{
   --coral:#E07A52;--gold:#E8B84B;--blue:#5AA3C8;--green:#6AAB7B;
   --dark:#1E1208;--warm:#FDF8F2;--card:#fff;--border:#E8DDD4;
@@ -16,22 +17,22 @@ body{font-family:'Outfit',sans-serif;background:#FDF8F2;color:#1E1208;overflow-x
 }
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97);backdrop-filter:blur(12px);padding:env(safe-area-inset-top) 40px 0;display:flex;justify-content:space-between;align-items:stretch;border-bottom:0.5px solid rgba(232,184,75,0.18);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97);backdrop-filter:blur(12px);padding:env(safe-area-inset-top) clamp(16px,4vw,40px) 0;display:flex;justify-content:space-between;align-items:stretch;border-bottom:0.5px solid rgba(232,184,75,0.18);gap:12px;}
 .nav-logo{font-size:15px;font-weight:900;color:#FDF8F2;letter-spacing:1px;display:flex;align-items:center;padding:16px 0;font-family:'Outfit',sans-serif;}
 .nav-logo span{color:var(--coral);}
-.nav-links{display:flex;gap:0;align-items:stretch;}
+.nav-links{display:flex;gap:0;align-items:stretch;min-width:0;}
 .nav-links a{font-size:12px;color:#8A6A50;text-decoration:none;font-weight:500;transition:all 0.2s;letter-spacing:0.5px;padding:0 16px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;}
 .nav-links a:hover{color:#FDF8F2;border-bottom-color:var(--coral);}
 .nav-links a.active{color:#FDF8F2;border-bottom-color:var(--coral);}
 .nav-resume{background:var(--coral)!important;color:#fff!important;padding:10px 18px!important;margin:10px 0 10px 12px;border-radius:8px!important;font-size:11px;font-weight:700;letter-spacing:0.5px;border-bottom:none!important;}
 .nav-resume:hover{background:#C85E38!important;border-bottom:none!important;}
-.nav-open{display:flex;align-items:center;gap:7px;padding:0 0 0 20px;border-left:0.5px solid rgba(255,255,255,0.06);margin-left:8px;}
+.nav-open{display:flex;align-items:center;gap:7px;padding:0 0 0 20px;border-left:0.5px solid rgba(255,255,255,0.06);margin-left:8px;flex-shrink:0;}
 .nav-open-dot{width:8px;height:8px;border-radius:50%;background:#6AAB7B;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
 .nav-open-text{font-size:11px;color:#6AAB7B;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
 
 /* HERO */
-.hero{min-height:100vh;background:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:72px 48px 24px;position:relative;}
+.hero{min-height:100svh;background:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:72px clamp(20px,4vw,48px) 24px;position:relative;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(224,122,82,0.07) 0%,transparent 65%);pointer-events:none;}
 .hero-badge{background:rgba(224,122,82,0.12);border:0.5px solid rgba(224,122,82,0.35);color:var(--coral);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;border-radius:20px;margin-bottom:16px;font-weight:700;position:relative;}
 .hero-title{font-size:clamp(42px,6vw,72px);font-weight:900;color:var(--warm);line-height:1.0;letter-spacing:-2px;margin-bottom:6px;position:relative;}
@@ -53,7 +54,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 /* SECTIONS */
 .sec-wrap{padding:60px 0;}
 .sec-wrap.alt{background:#FAF5EF;}
-.sec-inner{max-width:1080px;margin:0 auto;padding:0 48px;}
+.sec-inner{max-width:1080px;margin:0 auto;padding:0 clamp(20px,4vw,48px);}
 .s-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:8px;}
 .s-title{font-size:38px;font-weight:800;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;margin-bottom:6px;}
 .s-sub{font-family:'Lora',serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:32px;line-height:1.6;max-width:560px;}
@@ -100,16 +101,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
 .pf-btn{background:var(--card);border:0.5px solid var(--border);color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;padding:7px 15px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;}
 .pf-btn:hover,.pf-btn.active{background:var(--coral);color:#fff;border-color:var(--coral);}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.proj-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.proj-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);display:flex;flex-direction:column;position:relative;}
 .proj-card.visible{opacity:1;transform:translateY(0);}
 .proj-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,122,82,0.07);}
-.proj-img{width:100%;height:144px;object-fit:cover;border-radius:10px;display:block;margin-bottom:12px;}
-.proj-cat{font-size:9px;color:var(--coral);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
-.proj-name{font-size:12px;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:6px;}
+.proj-img{width:100%;height:144px;object-fit:cover;border-radius:10px;display:block;margin-bottom:18px;}
+.proj-view{position:absolute;top:12px;right:12px;background:#E9F3EC;color:#3E7A5A;border:0.5px solid #CFE2D6;border-radius:999px;padding:4px 10px;font-size:10px;font-weight:700;letter-spacing:0.2px;line-height:1;}
+.proj-img-gbg{object-position:center 22%;}
+.proj-img-uk{object-position:center 10%;}
+.proj-img-notion{object-fit:cover;object-position:center;transform:none;}
+.proj-img-vitro{object-fit:cover;object-position:center;}
+.proj-img-kiwi{object-fit:cover;object-position:center;}
+.proj-img-social{object-fit:cover;object-position:center 20%;}
+.proj-card[data-cat="marketing"] .proj-name{min-height:0;}
+.proj-card[data-cat="marketing"] .proj-tools{min-height:2.9em;}
+.proj-card[data-cat="marketing"] .proj-note{min-height:2.8em;}
+.proj-content{display:flex;flex-direction:column;justify-content:flex-start;}
+.proj-cat{display:none;}
+.proj-name{font-size:12px;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:0;}
 .proj-tools{font-size:10px;color:var(--muted);line-height:1.5;}
 .proj-note{font-size:9px;color:#8A6A50;line-height:1.4;margin-top:6px;font-style:italic;}
-.proj-link{display:block;text-decoration:none;color:inherit;}
+.proj-link{display:block;min-width:0;text-decoration:none;color:inherit;}
 
 /* SKILLS */
 .skills-dark{background:var(--dark);border-radius:20px;padding:40px;}
@@ -133,6 +145,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .di-text{font-size:12px;color:#B4906A;line-height:1.5;}
 
 /* TRAITS */
+.mbti-banner{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:center;background:linear-gradient(135deg,#FFF4D7 0%,#F8E8C0 52%,#F4E6D8 100%);border:0.5px solid #E7C98B;border-radius:18px;padding:20px 22px;margin:0 0 16px;}
+.mbti-label{display:flex;flex-direction:column;gap:4px;}
+.mbti-kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9A7055;font-weight:700;}
+.mbti-role{font-size:28px;font-weight:900;color:var(--dark);line-height:1.02;}
+.mbti-type{font-size:13px;color:var(--coral);font-weight:800;letter-spacing:0.4px;}
+.mbti-desc{font-size:13px;color:#4A3A2A;line-height:1.65;max-width:700px;}
 .traits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 .trait{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;transition:all 0.2s;opacity:0;transform:translateY(14px);}
 .trait.visible{opacity:1;transform:translateY(0);}
@@ -209,25 +227,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .gbg-pill{background:rgba(224,122,82,0.1);border:0.5px solid rgba(224,122,82,0.3);color:var(--coral);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;}
 
 /* SIDE QUESTS */
-.sq-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.sq-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 8px;scroll-padding-inline:2px;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pinch-zoom;}
 .sq-grid::-webkit-scrollbar{display:none;}
 .sq-card{background:var(--card);border:0.5px solid var(--border);border-radius:20px;padding:22px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
 .sq-card.visible{opacity:1;transform:translateY(0);}
 .sq-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 24px rgba(224,122,82,0.08);}
-.sq-card{cursor:pointer;}
+.sq-card{cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:pan-x pinch-zoom;}
 .sq-card{flex:0 0 340px;scroll-snap-align:start;}
 .sq-icon{font-size:28px;margin-bottom:10px;}
 .sq-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:2px;}
 .sq-role{font-size:11px;color:var(--coral);font-weight:600;margin-bottom:8px;}
 .sq-desc{display:none;}
 .sq-badge{display:inline-block;background:#FFF5F0;border:0.5px solid #F5C4AD;color:#C05A30;font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;}
-.sq-hint{display:block;font-size:11px;color:var(--muted);font-weight:600;margin:-8px 0 10px;}
+.sq-hint{display:block;font-size:13px;color:var(--muted);font-weight:600;margin:-8px 0 10px;}
 .sq-modal-panel{max-width:640px;}
 .sq-modal-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
 .sq-modal-icon{font-size:28px;line-height:1;}
 .sq-modal-title{font-size:24px;font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:4px;}
 .sq-modal-role{font-size:13px;color:var(--coral);font-weight:700;}
 .sq-modal-desc{font-size:14px;color:#4A3A2A;line-height:1.7;margin-top:14px;}
+
+@media(max-width:1180px){
+  .adv-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .traits-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .proj-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .world-grid{grid-template-columns:1fr;}
+}
 
 @media(max-width:900px){
   html{scroll-padding-top:90px;}
@@ -239,17 +264,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   .nav-links a{display:flex;padding:10px 12px;border:0.5px solid rgba(232,184,75,0.14);border-radius:999px;background:rgba(255,255,255,0.03);border-bottom:none;flex:0 0 auto;}
   .nav-links a.active{background:rgba(224,122,82,0.14);border-color:rgba(224,122,82,0.45);}
   .nav-resume{order:-1;margin:0 4px 0 0!important;padding:10px 16px!important;}
-  .sec-inner{padding:0 20px;}
-  .hero{padding:calc(env(safe-area-inset-top) + 148px) 20px 48px;}
-  .hero-stats{flex-wrap:wrap;}
-  .hs{min-width:30%;}
+  .hero{min-height:auto;padding:calc(env(safe-area-inset-top) + 148px) 20px 44px;}
+  .hero-stats{flex-wrap:wrap;margin-top:16px;}
+  .hs{flex:1 1 calc(33.333% - 1px);min-width:calc(33.333% - 1px);}
   .adv-grid{grid-template-columns:1fr 1fr;}
   .sq-hint{display:block;}
   .sq-grid{gap:12px;padding-bottom:6px;}
   .sq-card{flex:0 0 82%;scroll-snap-align:start;}
-  .proj-grid{grid-template-columns:1fr 1fr;}
+  .mbti-banner{grid-template-columns:1fr;gap:10px;padding:18px 18px;}
+  .mbti-role{font-size:24px;}
   .traits-grid{grid-template-columns:1fr 1fr;}
-  .world-grid{grid-template-columns:1fr;}
   .dream-grid{grid-template-columns:1fr;}
   .dream-item{padding:18px 16px;}
   .di-text{font-size:14px;line-height:1.6;}
@@ -257,6 +281,57 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   .char-card{flex-direction:column;}
   .exp-head{flex-direction:column;gap:4px;}
   .exp-date{white-space:normal;}
+}
+
+@media(max-width:700px){
+  .sec-wrap{padding:48px 0;}
+  .s-title{font-size:30px;letter-spacing:-1px;}
+  .s-sub{font-size:14px;margin-bottom:24px;}
+  .hero{padding:calc(env(safe-area-inset-top) + 150px) 18px 32px;}
+  .hero-pic{width:140px;height:140px;}
+  .hero-sub{font-size:14px;max-width:34ch;}
+  .hero-stats{width:100%;}
+  .hs{flex:1 1 calc(50% - 1px);min-width:calc(50% - 1px);padding:14px 8px;}
+  .char-card{padding:18px;}
+  .char-name{font-size:22px;}
+  .adv-grid,.proj-grid,.traits-grid{grid-template-columns:1fr;}
+  .proj-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;}
+  .proj-filters::-webkit-scrollbar{display:none;}
+  .pf-btn{flex:0 0 auto;}
+  .proj-card{padding:16px;}
+  .proj-img{height:176px;}
+  .proj-view{top:10px;right:10px;}
+  .exp-card{grid-template-columns:1fr;padding:18px;gap:10px;}
+  .exp-dot{display:none;}
+  .sq-card{flex:0 0 calc(100% - 28px);}
+  .modal-overlay{padding:16px;}
+  .modal-panel{padding:22px 18px;border-radius:18px;}
+  .modal-header,.sq-modal-head{gap:12px;}
+  .contact-wrap{padding:48px 20px;}
+  .c-title{font-size:32px;}
+  .coffee-cta{width:100%;max-width:340px;padding:16px 24px;}
+  .soc-link{flex:1 1 calc(50% - 10px);text-align:center;}
+  .back-to-top{right:16px;bottom:16px;padding:10px 14px;}
+}
+
+@media(max-width:520px){
+  html{scroll-padding-top:102px;}
+  nav{padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;}
+  .nav-logo{font-size:13px;}
+  .nav-open-text{font-size:10px;letter-spacing:0.8px;}
+  .nav-links{gap:6px;padding-top:8px;}
+  .nav-links a{padding:9px 11px;font-size:11px;}
+  .nav-resume{width:100%;justify-content:center;margin:0!important;}
+  .hero{padding:calc(env(safe-area-inset-top) + 164px) 16px 28px;}
+  .hero-badge{font-size:9px;letter-spacing:2px;padding:5px 12px;}
+  .hero-title{letter-spacing:-1.4px;}
+  .hs-n{font-size:20px;}
+  .mbti-role{font-size:21px;}
+  .mbti-desc{font-size:12px;}
+  .sq-card{flex:0 0 88%;padding:18px;}
+  .sq-title{font-size:12px;}
+  .sq-hint{font-size:12px;}
+  .c-stats{grid-template-columns:repeat(2,1fr);}
 }
 </style>
 </head>
@@ -341,6 +416,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="s-label">⚡ Character Stats</div>
   <div class="s-title">How I Think & Work.</div>
   <div class="s-sub">Ask anyone who's worked with me. These come up every time.</div>
+  <div class="mbti-banner fade-in">
+    <div class="mbti-label">
+      <div class="mbti-kicker">My Personality Type Is:</div>
+      <div class="mbti-role">Protagonist</div>
+      <div class="mbti-type">ENFJ-A (MBTI test)</div>
+    </div>
+    <div class="mbti-desc">A charismatic, empathetic, and purpose-driven leader who naturally reads people well, communicates ideas with conviction, and brings out the best in others. I care deeply about meaningful work, strong relationships, and creating positive impact wherever I am.</div>
+  </div>
   <div class="traits-grid">
     <div class="trait fade-in"><div class="trait-icon">🔥</div><div class="trait-name">Relentlessly Curious</div><div class="trait-desc">I dig into how things work, why they matter, and what we should do about it</div></div>
     <div class="trait fade-in"><div class="trait-icon">🌍</div><div class="trait-name">Global Thinker</div><div class="trait-desc">Having lived in 6 countries, I naturally approach problems from multiple angles</div></div>
@@ -483,48 +566,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 <div class="sec-inner">
   <div class="s-label">🧠 Problem Solving Mode</div>
   <div class="s-title">What I've Built.</div>
-  <div class="s-sub">35+ projects spanning analytics, strategy, marketing, VC research, and media. Click any bubble to view or download.</div>
+  <div class="s-sub">22 projects spanning analytics, strategy, marketing, VC research, and media.<br>Click any bubble to view.</div>
   <div class="proj-filters">
     <button class="pf-btn active" onclick="fp('analytics',this)">Analytics</button>
-    <button class="pf-btn" onclick="fp('strategy',this)">Strategy</button>
     <button class="pf-btn" onclick="fp('marketing',this)">Marketing</button>
     <button class="pf-btn" onclick="fp('vc',this)">Venture Capital</button>
-    <button class="pf-btn" id="startup-filter-btn" onclick="fp('startup',this)">Startup & Entrepreneurship</button>
     <button class="pf-btn" id="media-filter-btn" onclick="fp('media',this)">Photos, Media & Design</button>
+    <button class="pf-btn" onclick="fp('strategy',this)">Strategy</button>
+    <button class="pf-btn" id="startup-filter-btn" onclick="fp('startup',this)">Startup & Entrepreneurship</button>
   </div>
   <div class="proj-grid" id="pgrid">
     <!-- ANALYTICS -->
+    <a class="proj-link" href="https://drive.google.com/drive/folders/1k2CovChWSvZJQLnd28FNlFRS3cnAOQbm?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><span class="proj-view">View ↗</span><img class="proj-img" src="P2P%20platform.jpg" alt="Handshake graphic representing peer-to-peer lending"><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">End-to-end credit risk pipeline: preprocessing, feature engineering, OLS baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1HvOAKhkCrOdGQFgnJQWOENlhdTBgaenR/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Men%20%26%20Women%20Education.webp" alt="Graduation illustration for education earnings analysis"><div class="proj-name">Does Education Pay Off Equally for Men &amp; Women?</div><div class="proj-tools">Stata · OLS Regression · IPUMS CPS Data · Excel · FRED Data · Interaction Terms</div><div class="proj-note">OLS regression on 3,795 obs — found men earn 28.9% more, but the gap narrows 1.46% per education year and closes entirely after ~20 years of schooling.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/drive/folders/1QJNBvyoLGuZP5P6QPIE80CHmjioS32xj?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="DoorDash%20.jpeg" alt="DoorDash logo shown on a phone screen"><div class="proj-name">DoorDash Case — RFM Segmentation &amp; Response Analysis</div><div class="proj-tools">Python · pandas · NumPy · seaborn · matplotlib · RFM Quintiles · Campaign Response Modeling</div><div class="proj-note">Built recency-frequency-monetary segments and visualized response patterns to identify higher-value customer groups for targeting.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/16rjlhlZ2nTagjxdYrM66-JE-9mNmMJAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Housing%20Price.jpg" alt="House with market trend arrows for housing price analysis"><div class="proj-name">Housing Price Prediction — Linear Regression Modeling</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Linear Regression · Excel</div><div class="proj-note">Built and compared regression models with preprocessing, imputation, dummy encoding, and performance checks using RMSE and R-squared.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/16rjlhlZ2nTagjxdYrM66-JE-9mNmMJAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Housing%20Price%20Prediction.webp" alt="Two people viewing home price movements on mobile screens"><div class="proj-name">Housing Price Prediction — Linear Regression Modeling</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Linear Regression · Excel</div><div class="proj-note">Built and compared regression models with preprocessing, imputation, dummy encoding, and performance checks using RMSE and R-squared.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/drive/folders/1Zqq-nEyXZNW0IQ-Zp6WpaV3eBjPvhBvS?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="IKEA.jpg" alt="IKEA message mockup on a phone screen"><div class="proj-name">IKEA Case — Personalized Messaging Profit Optimization</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · seaborn · matplotlib · Profit Simulation</div><div class="proj-note">Modeled category-level response and expected profit to compare personalized vs. fixed campaign strategies across IKEA product departments.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/1k2CovChWSvZJQLnd28FNlFRS3cnAOQbm?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="P2P%20platform.jpg" alt="Handshake graphic representing peer-to-peer lending"><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">End-to-end credit risk pipeline: preprocessing, feature engineering, OLS baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
     <!-- DESIGN -->
-    <a class="proj-link" href="Five Forgers' Poster.pdf" download="Five Forgers' Poster.pdf"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Design</div><div class="proj-name">KiwiCloud Poster Design</div><div class="proj-tools">Poster Design · Brand Messaging · Visual Layout</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/1ueoC5B4TKXxfVpEhWqhSezu6yB1ESlpM?usp=share_link" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Design</div><div class="proj-name">Social Media Designs — Beyond the Green Coaching · DePauw Marketing Club · Grab Before Grad</div><div class="proj-tools">Canva · Content Strategy · Brand Voice · Visual Design</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/1ueoC5B4TKXxfVpEhWqhSezu6yB1ESlpM?usp=share_link" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img proj-img-social" src="Social%20Media%20Designs.png" alt="Social media design thumbnail"><div class="proj-cat">Design</div><div class="proj-name">Social Media Designs — Beyond the Green Coaching · DePauw Marketing Club · Grab Before Grad</div><div class="proj-tools">Canva · Content Strategy · Brand Voice · Visual Design</div></div></a>
+    <a class="proj-link" href="https://docs.google.com/document/d/1PoNtRyHCt1fuh1YTT5YABk4_tK8-EvxtiE6AApyz1jk/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="beyond-green-coaching.png" alt="Beyond the Green Coaching website hero"><div class="proj-cat">Writing</div><div class="proj-name">Beyond the Green Coaching — 20 Published LinkedIn &amp; Instagram Posts</div><div class="proj-tools">Copywriting · Financial Literacy · Content Strategy · Brand Voice</div><div class="proj-note">Published finance-focused social content tailored to audience pain points and a consistent brand voice.</div></div></a>
     <!-- MARKETING -->
-    <a class="proj-link" href="https://drive.google.com/file/d/1INbdccPBiNMKX8wxNdg5vYHpm94AoBES/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">NYT Advertising &amp; Audience Insights — Sample Case Study</div><div class="proj-tools">Audience Segmentation · Ad Strategy · Media Analytics · Consumer Research</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/file/d/1QW4sWBG1EY0NYUys5CD81bUiYnPR104Q/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">Product Marketing Vision — Empowering Indiana with Ascend</div><div class="proj-tools">GTM Strategy · User Persona Development · Talent Branding · Workforce Growth Campaigns</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/file/d/17mHEeFAnka1jdcw8KlcV-7JwtDDpTGgY/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><div class="proj-cat">Marketing</div><div class="proj-name">What Makes Brands Popular?</div><div class="proj-tools">Brand Analysis · Social Media Analytics · Consumer Psychology · EMV Modeling · Revenue Trends</div><div class="proj-note">Case studies: Lululemon · Stanley 1913 · Summer Fridays · Parke — uncovering the patterns behind viral growth and premium pricing.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/17mHEeFAnka1jdcw8KlcV-7JwtDDpTGgY/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="Popular%20Brands.png" alt="Collage of popular consumer brands and products"><div class="proj-cat">Marketing</div><div class="proj-name">What Makes Brands Popular?</div><div class="proj-tools">Brand Analysis · Social Media Analytics · Consumer Psychology · EMV Modeling · Revenue Trends</div><div class="proj-note">Compared breakout brands to identify repeatable growth patterns, pricing signals, and social traction drivers.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1INbdccPBiNMKX8wxNdg5vYHpm94AoBES/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="NYT.avif" alt="Lifestyle collage featuring New York Times contexts"><div class="proj-cat">Marketing</div><div class="proj-name">NYT Advertising &amp; Audience Insights — Sample Case Study</div><div class="proj-tools">Audience Segmentation · Ad Strategy · Media Analytics · Consumer Research</div><div class="proj-note">Analyzed audience behavior to shape ad strategy, segment priorities, and media performance decisions.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1QW4sWBG1EY0NYUys5CD81bUiYnPR104Q/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="Ascend%20IN.avif" alt="Ascend Indiana marketing visual"><div class="proj-cat">Marketing</div><div class="proj-name">Product Marketing Vision — Empowering Indiana with Ascend</div><div class="proj-tools">GTM Strategy · User Persona Development · Talent Branding · Workforce Growth Campaigns</div><div class="proj-note">Built a GTM direction for a job-matching platform connecting Indiana talent with employers.</div></div></a>
     <!-- MEDIA -->
-    <a class="proj-link" href="https://thedepauw.com/staff_name/mai-vy-le/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Media</div><div class="proj-name">The DePauw Newspaper</div><div class="proj-tools">Editorial Leadership · Copywriting · Production Management</div></div></a>
+    <a class="proj-link" href="https://thedepauw.com/staff_name/mai-vy-le/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="the-depauw.jpg" alt="The DePauw Newspaper"><div class="proj-cat">Media</div><div class="proj-name">The DePauw Newspaper</div><div class="proj-tools">Editorial Leadership · Copywriting · Production Management</div><div class="proj-note">Wrote and edited campus stories while coordinating production timelines across the editorial workflow.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1JWJ0QalrWg70CSueigi1ymmUqZbdSQAn/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img proj-img-kiwi" src="Untitled%20design.png" alt="KiwiCloud mascot illustration"><div class="proj-cat">Design</div><div class="proj-name">KiwiCloud Poster Design</div><div class="proj-tools">Poster Design · Brand Messaging · Visual Layout</div><div class="proj-note">Designed a campaign poster that translates brand story into clear, high-impact visual messaging.</div></div></a>
     <!-- PHOTOGRAPHY -->
-    <a class="proj-link" href="https://drive.google.com/drive/folders/12iF0ablh1uXzwnIeRmrc5BMLIRKcYTjE?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Photography</div><div class="proj-name">My Favorite Photos of Me in Nature</div><div class="proj-tools">Nature · Portraits · Outdoors · Travel</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/15oC86UnfC0uolUmvuwnSWQZKykst2H3v?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Photography</div><div class="proj-name">My Favorite Shots — Travel Photography</div><div class="proj-tools">iPhone · Travel · Landscape · Candid</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/15oC86UnfC0uolUmvuwnSWQZKykst2H3v?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="Near%20Sequoia%20NP.jpg" alt="Travel photography near Sequoia with rainbow"><div class="proj-cat">Photography</div><div class="proj-name">My Favorite Shots — Travel Photography</div><div class="proj-tools">iPhone · Travel · Landscape · Candid</div><div class="proj-note">Captured candid travel scenes and city moments through my iPhone-first visual storytelling style.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/drive/folders/12iF0ablh1uXzwnIeRmrc5BMLIRKcYTjE?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="Twinned%20Rainbow.jpg" alt="Valerie in nature with a twin rainbow"><div class="proj-cat">Photography</div><div class="proj-name">My Favorite Photos of Me in Nature</div><div class="proj-tools">Nature · Portraits · Outdoors · Travel</div><div class="proj-note">Edited by me, with adjustments to lighting, color, and tone to highlight natural mood and composition.</div></div></a>
     <!-- STARTUP & ENTREPRENEURSHIP -->
-    <a class="proj-link" href="https://www.instagram.com/grab_before_grad26/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="startup"><div class="proj-cat">Startup &amp; Entrepreneurship</div><div class="proj-name">Grab Before Grad — Multi-Vendor Resale Platform</div><div class="proj-tools">Platform Launch · Growth Marketing · Ops · Events (500+ attendees)</div></div></a>
+    <a class="proj-link" href="https://www.instagram.com/grab_before_grad26/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="startup"><img class="proj-img proj-img-gbg" src="Social%20Media%20Designs%20-%20Valerie%20(Vy)%20Le/Grab%20before%20Grad/@grab_before_grad26.png" alt="Grab Before Grad illustrated promotional poster"><div class="proj-cat">Startup &amp; Entrepreneurship</div><div class="proj-name">Grab Before Grad — Multi-Vendor Resale Platform</div><div class="proj-tools">Platform Launch · Growth Marketing · Ops · Events (500+ attendees)</div></div></a>
     <!-- STRATEGY -->
     <a class="proj-link" href="https://drive.google.com/file/d/1-akdfZjHtgd8MVA4NdQ1r-f2eURSjNd1/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Adobe.jpeg" alt="Adobe-themed illustration with a robot painting at an easel"><div class="proj-cat">Strategy</div><div class="proj-name">Adobe — Enterprise Architecture Analyst Case Study</div><div class="proj-tools">Enterprise Architecture · Process Design · Systems Thinking · Strategic Roadmapping</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/file/d/1hHbYTQeWT-T8dDhuNZep8zmsOA7pdlzT/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="IHDA.webp" alt="Family standing in front of a house protected by large hands"><div class="proj-cat">Strategy</div><div class="proj-name">Affordable Housing Strategy — IHDA Asset Management</div><div class="proj-tools">Housing Policy · Financial Analysis · Data Visualization · Community Impact Framework</div></div></a>
     <a class="proj-link" href="https://drive.google.com/drive/folders/1xnfTINWpkHzT_sdTyZCAVdVG-3fq4dAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Lululemon.jpg" alt="Lululemon storefront photo"><div class="proj-cat">Strategy</div><div class="proj-name">Lululemon — Brand Strategy &amp; Business Case Analysis</div><div class="proj-tools">Brand Strategy · Competitive Analysis · Business Case · Market Positioning</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/file/d/1mCFvhDpGc7IlRordSzNQlbSeQuYE87g5/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="UK%20Health.webp" alt="Doctor holding a chart about value and cost in healthcare"><div class="proj-cat">Strategy</div><div class="proj-name">Mental Health Policy Framework — UK Health Economics Analysis</div><div class="proj-tools">Health Economics · Policy Design · Quantitative Analysis · Evidence-Based Recommendations</div><div class="proj-note">ECN369 capstone: Addressing mental health disorders through early intervention, stigma reduction, and digital health integration using the Grossman model.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1hHbYTQeWT-T8dDhuNZep8zmsOA7pdlzT/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="IHDA.webp" alt="Family standing in front of a house protected by large hands"><div class="proj-cat">Strategy</div><div class="proj-name">Affordable Housing Strategy — IHDA Asset Management</div><div class="proj-tools">Housing Policy · Financial Analysis · Data Visualization · Community Impact Framework</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1mCFvhDpGc7IlRordSzNQlbSeQuYE87g5/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img proj-img-uk" src="UK%20Health.jpg" alt="Illustration of mental healthcare support and brain health"><div class="proj-cat">Strategy</div><div class="proj-name">Mental Health Policy Framework — UK Health Economics Analysis</div><div class="proj-tools">Health Economics · Policy Design · Quantitative Analysis · Evidence-Based Recommendations</div><div class="proj-note">ECN369 capstone: Addressing mental health disorders through early intervention, stigma reduction, and digital health integration using the Grossman model.</div></div></a>
     <!-- VENTURE CAPITAL -->
-    <a class="proj-link" href="Notion Investment Memo.pdf" download="Notion Investment Memo.pdf"><div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Notion — Market Thesis &amp; Recommendation</div><div class="proj-tools">Market Sizing · Competitive Benchmarking · Investment Recommendation</div></div></a>
-    <a class="proj-link" href="Investment Memo.pdf" download="Investment Memo.pdf"><div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Vitro3D — Market Thesis &amp; Recommendation</div><div class="proj-tools">Market Sizing · Competitive Benchmarking · Investment Recommendation</div></div></a>
-    <a class="proj-link" href="https://docs.google.com/spreadsheets/d/1NWYHsvPZ1LUYTkMW4qWAPQu2pjCH7sYoITPXQfr3dp8/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="vc"><div class="proj-cat">Venture Capital</div><div class="proj-name">VC Deal Screening Tracker</div><div class="proj-tools">Deal Sourcing · Evaluation Criteria · Spreadsheet Analysis</div></div></a>
-    <!-- WRITING -->
-    <a class="proj-link" href="https://docs.google.com/document/d/1PoNtRyHCt1fuh1YTT5YABk4_tK8-EvxtiE6AApyz1jk/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Writing</div><div class="proj-name">Beyond the Green Coaching — 20 Published LinkedIn &amp; Instagram Posts</div><div class="proj-tools">Copywriting · Financial Literacy · Content Strategy · Brand Voice</div></div></a>
-    <a class="proj-link" href="Blog Post Valerie (Vy Le).pdf" download="Blog Post Valerie (Vy Le).pdf"><div class="proj-card fade-in" data-cat="media"><div class="proj-cat">Writing</div><div class="proj-name">Blog: "When was the last time you were full?"</div><div class="proj-tools">Long-form Writing · Photography · Social Commentary</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1pX4gTUS70Bw-txJdzAgT6PjQPptXXhht/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="vc"><img class="proj-img proj-img-notion" src="Notion-New.png" alt="Notion investment memo thumbnail"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Notion — Market Thesis &amp; Recommendation</div><div class="proj-tools">Market Sizing · Competitive Benchmarking · Investment Recommendation</div><div class="proj-note">Evaluated collaboration software economics, competitive moat, and upside scenarios to inform investment fit.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1GDeRlgK78TaM6L4Y0uabuD1Nr_C6C5EI/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="vc"><img class="proj-img proj-img-vitro" src="vitro3d.jpg" alt="Vitro3D logo"><div class="proj-cat">Venture Capital</div><div class="proj-name">Investment Memo: Vitro3D — Market Thesis &amp; Recommendation</div><div class="proj-tools">Market Sizing · Competitive Benchmarking · Investment Recommendation</div><div class="proj-note">Assessed 3D bioprinting market potential, adoption risks, and commercialization path for investment readiness.</div></div></a>
+    <a class="proj-link" href="https://docs.google.com/spreadsheets/d/1NWYHsvPZ1LUYTkMW4qWAPQu2pjCH7sYoITPXQfr3dp8/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="vc"><img class="proj-img" src="VC%20Tracker.png" alt="VC deal screening illustration"><div class="proj-cat">Venture Capital</div><div class="proj-name">VC Deal Screening Tracker — Sourcing, Scoring &amp; Prioritization Workflow</div><div class="proj-tools">Google Sheets · Crunchbase · PitchBook · Deal Sourcing · Scoring Frameworks · ChatGPT · Claude · Perplexity</div><div class="proj-note">Built a weighted screening tracker with AI-assisted research prompts to prioritize high-potential startup leads.</div></div></a>
   </div>
 </div>
 </div>
@@ -533,8 +614,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 <div id="skills" class="sec-wrap alt">
 <div class="sec-inner">
   <div class="s-label">🛠️ The Toolkit</div>
-  <div class="s-title">How I Work.</div>
-  <div class="s-sub">The tools and methods I reach for when there's a real problem to solve.</div>
+  <div class="s-title">How I turn data into decisions.</div>
+  <div class="s-sub">The systems, tools, and thinking I use to break down messy problems and drive clear outcomes.</div>
   <div class="skills-dark fade-in">
     <div class="sg">
       <div class="sg-t">Analytics & Data Science</div>
@@ -570,7 +651,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="s-label">🎭 Side Quest Mode</div>
   <div class="s-title">Fun Jobs That Shaped Me.</div>
   <div class="s-sub">These weren't on the main path — they were the detours that turned out to matter most.</div>
-  <div class="sq-hint">Swipe to explore all 9 side quests →</div>
+  <div class="sq-hint">Swipe to explore all 9 side quests. Tap any bubble to learn more →</div>
   <div class="sq-grid">
 
     <div class="sq-card fade-in">
@@ -808,12 +889,45 @@ function goToMediaProjects(){
   fp('media', document.getElementById('media-filter-btn'));
 }
 
+let currentProjectCategory = 'analytics';
+
+function syncCategoryCardHeights(category){
+  const cards = Array.from(document.querySelectorAll('.proj-card[data-cat="' + category + '"]'))
+    .filter(card => card.style.display !== 'none');
+  if(!cards.length) return;
+
+  cards.forEach(card => { card.style.height = 'auto'; });
+  const maxHeight = Math.max(...cards.map(card => card.offsetHeight));
+  cards.forEach(card => { card.style.height = maxHeight + 'px'; });
+}
+
+// Wrap project text nodes so content can be vertically centered in every card.
+function setupProjectCardContent(){
+  document.querySelectorAll('.proj-card').forEach(card => {
+    if(!card.querySelector(':scope > .proj-view')){
+      const viewPill = document.createElement('span');
+      viewPill.className = 'proj-view';
+      viewPill.textContent = 'View ↗';
+      card.insertBefore(viewPill, card.firstChild);
+    }
+    if(card.querySelector(':scope > .proj-content')) return;
+    const content = document.createElement('div');
+    content.className = 'proj-content';
+    Array.from(card.children).forEach(child => {
+      if(!child.classList.contains('proj-img') && !child.classList.contains('proj-view')) content.appendChild(child);
+    });
+    card.appendChild(content);
+  });
+}
+
 // Project filter
 function fp(cat,btn){
+  currentProjectCategory = cat;
   document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.proj-card').forEach(card=>{
     const wrapper = card.closest('.proj-link');
+    card.style.height = 'auto';
     if(cat==='all'||card.dataset.cat===cat){
       card.style.display='block';
       if(wrapper) wrapper.style.display='block';
@@ -823,6 +937,8 @@ function fp(cat,btn){
       if(wrapper) wrapper.style.display='none';
     }
   });
+
+  if(cat === 'marketing' || cat === 'media') syncCategoryCardHeights(cat);
 }
 
 // Intersection observer for fade-ins
@@ -870,7 +986,32 @@ function closeSqModal(){
 document.querySelectorAll('.sq-card').forEach(card => {
   card.setAttribute('role', 'button');
   card.setAttribute('tabindex', '0');
-  card.addEventListener('click', () => openSqModal(card));
+
+  let pointerStartX = 0;
+  let pointerStartY = 0;
+  let didDrag = false;
+
+  card.addEventListener('pointerdown', (e) => {
+    pointerStartX = e.clientX;
+    pointerStartY = e.clientY;
+    didDrag = false;
+  });
+
+  card.addEventListener('pointermove', (e) => {
+    if(Math.abs(e.clientX - pointerStartX) > 8 || Math.abs(e.clientY - pointerStartY) > 8){
+      didDrag = true;
+    }
+  });
+
+  card.addEventListener('click', (e) => {
+    if(didDrag){
+      e.preventDefault();
+      didDrag = false;
+      return;
+    }
+    openSqModal(card);
+  });
+
   card.addEventListener('keydown', (e) => {
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
@@ -946,8 +1087,12 @@ if(window.location.hash){
 }
 
 window.addEventListener('scroll', updateActiveNav);
-window.addEventListener('resize', updateActiveNav);
+window.addEventListener('resize', () => {
+  updateActiveNav();
+  if(currentProjectCategory === 'marketing' || currentProjectCategory === 'media') syncCategoryCardHeights(currentProjectCategory);
+});
 updateActiveNav();
+setupProjectCardContent();
 fp('analytics', document.querySelector('.proj-filters .pf-btn'));
 </script>
 </body>
