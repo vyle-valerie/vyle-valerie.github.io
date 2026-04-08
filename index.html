@@ -93,9 +93,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .exp-date{font-size:11px;font-weight:700;color:#9A8A7A;white-space:nowrap;letter-spacing:0.6px;text-transform:uppercase;}
 .exp-role{font-size:16px;font-weight:700;color:#6A5545;margin-bottom:4px;line-height:1.25;}
 .exp-loc{font-size:11px;color:var(--muted);margin-bottom:10px;}
-.exp-impacts{display:flex;flex-direction:column;gap:4px;}
-.exp-impact{font-size:12px;color:#4A3A2A;line-height:1.45;padding-left:14px;position:relative;}
-.exp-impact::before{content:'→';position:absolute;left:0;color:var(--coral);font-weight:700;}
+.exp-meta{display:grid;gap:10px;}
+.exp-row{display:grid;gap:6px;}
+.exp-row-title{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#9A7055;font-weight:800;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.exp-tag{background:#FFF7F1;border:0.5px solid #F2CCB8;color:#8A553D;font-size:11px;font-weight:600;padding:6px 11px;border-radius:999px;line-height:1.2;}
+.exp-tag.tool{background:#F4F8FB;border-color:#D6E4EE;color:#4E6A7E;}
 
 /* PROJECTS */
 .proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
@@ -472,10 +475,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">APPE — Association for Practical & Professional Ethics</div><div class="exp-date">Feb 2026 – Present</div></div>
         <div class="exp-role">Communications & Analytics Intern</div>
         <div class="exp-loc">📍 Greencastle, IN, USA</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Analyzed 1,000+ membership and engagement records (500+ attendees) to identify retention drivers and inform conference strategy.</div>
-          <div class="exp-impact">Drove digital engagement through email and content optimization, increasing reach and interaction by 20%+.</div>
-          <div class="exp-impact">Synthesized post-event feedback into actionable insights, improving programming and attendee experience.</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Membership Analytics</span><span class="exp-tag">Email Strategy</span><span class="exp-tag">Content Optimization</span><span class="exp-tag">Conference Insights</span><span class="exp-tag">Retention Analysis</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Google Sheets</span><span class="exp-tag tool">Survey Analysis</span><span class="exp-tag tool">Email Platforms</span><span class="exp-tag tool">Content Reporting</span></div></div>
         </div>
       </div>
     </div>
@@ -486,10 +488,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">iMin Technology / KiwiCloud</div><div class="exp-date">Aug – Dec 2025</div></div>
         <div class="exp-role">Go-To-Market Strategy & Sales Enablement Analyst</div>
         <div class="exp-loc">📍 Singapore (Remote)</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Developed U.S. SMB/mid-market go-to-market strategy for KiwiCloud's UEM platform, conducting competitor analysis, pricing modeling, and ideal customer profiling to support expansion into 100+ target accounts.</div>
-          <div class="exp-impact">Built sales enablement materials and KiwiCloud Academy content, training 50+ sales reps and partners, improving messaging adoption and shortening onboarding time by 25%.</div>
-          <div class="exp-impact">Designed ROI/TCO frameworks, policy engine diagrams, and workflow visuals used by product, sales engineering, and leadership, enabling faster deal qualification and increasing sales efficiency by 15%.</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">GTM Strategy</span><span class="exp-tag">Sales Enablement</span><span class="exp-tag">Pricing Modeling</span><span class="exp-tag">ICP Definition</span><span class="exp-tag">Competitive Analysis</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">PowerPoint</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">ROI/TCO Models</span><span class="exp-tag tool">Workflow Diagrams</span><span class="exp-tag tool">Training Content</span></div></div>
         </div>
       </div>
     </div>
@@ -500,10 +501,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">Pfizer</div><div class="exp-date">Jun – Aug 2025</div></div>
         <div class="exp-role">Global Commercial Analytics Intern</div>
         <div class="exp-loc">📍 New York, NY, USA</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Led development of a strategic blueprint for Pfizer's Program Management & Planning function by interviewing 10+ stakeholders, creating an updated project framework that supports 50+ global program managers with clearer alignment to commercial objectives.</div>
-          <div class="exp-impact">Directed an 8-person Experience Architects team to design and deliver the GCA Elevate Summit, Pfizer's largest annual Global Commercial Analytics event, hosting 300+ attendees and shaping agenda, theme, and speaker flow.</div>
-          <div class="exp-impact">Conducted market research across 12+ countries to document Product Market Research (PMR) approval requirements, improving cross-border regulatory visibility and streamlining future submissions.</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Commercial Analytics</span><span class="exp-tag">Stakeholder Interviews</span><span class="exp-tag">Program Strategy</span><span class="exp-tag">Event Leadership</span><span class="exp-tag">Market Research</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">PowerPoint</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Framework Design</span><span class="exp-tag tool">Research Docs</span><span class="exp-tag tool">Planning Decks</span></div></div>
         </div>
       </div>
     </div>
@@ -514,10 +514,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">Central Indiana Corporate Partnership — Ascend Indiana</div><div class="exp-date">Jan – Apr 2025</div></div>
         <div class="exp-role">Product Marketing Intern</div>
         <div class="exp-loc">📍 Indianapolis, IN, USA</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Analyzed data from 10,000+ users using Mixpanel, uncovering insights that informed A/B tests and product improvements, boosting engagement by 20%+ and profile completion by 15%.</div>
-          <div class="exp-impact">Defined 13+ key metrics and conducted scraped vs. manual job posting analysis, contributing to a quality score model that increased job seeker engagement 25% and employer interaction 18%.</div>
-          <div class="exp-impact">Delivered actionable dashboards and reports to cross-functional teams, enabling data-driven decisions that improved platform experience and job matching efficiency by 20%.</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Product Marketing</span><span class="exp-tag">A/B Testing</span><span class="exp-tag">KPI Design</span><span class="exp-tag">User Analytics</span><span class="exp-tag">Dashboard Reporting</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Mixpanel</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Scraped Data Review</span><span class="exp-tag tool">Reporting Decks</span><span class="exp-tag tool">Dashboards</span></div></div>
         </div>
       </div>
     </div>
@@ -528,10 +527,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">HP Tech Ventures</div><div class="exp-date">Nov 2024 – Jan 2025</div></div>
         <div class="exp-role">Deal Sourcing & Startup Analysis Intern</div>
         <div class="exp-loc">📍 Remote</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Sourced and evaluated 100+ early-stage startups across SaaS, AI, and consumer tech via Crunchbase, AngelList & PitchBook</div>
-          <div class="exp-impact">Conducted due diligence on 8 high-potential startups — built 5 market sizing models and 3 competitor benchmarking analyses</div>
-          <div class="exp-impact">Authored a 3-slide investment memo for Notion, translating complex data into strategic recommendations for senior stakeholders</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Deal Sourcing</span><span class="exp-tag">Due Diligence</span><span class="exp-tag">Market Sizing</span><span class="exp-tag">Competitor Benchmarking</span><span class="exp-tag">Investment Memo Writing</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Crunchbase</span><span class="exp-tag tool">PitchBook</span><span class="exp-tag tool">AngelList</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Slides</span></div></div>
         </div>
       </div>
     </div>
@@ -542,10 +540,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">Hub of China</div><div class="exp-date">Sep – Dec 2024</div></div>
         <div class="exp-role">Market Research Analysis Intern</div>
         <div class="exp-loc">📍 London, UK</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Delivered 3 global market analyses providing actionable entry strategies that informed 2 successful product launches in Vietnam</div>
-          <div class="exp-impact">Enhanced marketing profiles with consumer insights, driving 15% increase in engagement across digital platforms</div>
-          <div class="exp-impact">Shortened client decision timelines by 20% through data-driven market entry and competitive recommendations</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Market Research</span><span class="exp-tag">Go-to-Market Insights</span><span class="exp-tag">Consumer Profiling</span><span class="exp-tag">Competitive Analysis</span><span class="exp-tag">Launch Strategy</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Research Decks</span><span class="exp-tag tool">Consumer Data</span><span class="exp-tag tool">Digital Analysis</span><span class="exp-tag tool">Presentation Docs</span></div></div>
         </div>
       </div>
     </div>
@@ -556,10 +553,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">1st Source Bank</div><div class="exp-date">May – Aug 2024</div></div>
         <div class="exp-role">Marketing Analytics & IT Intern</div>
         <div class="exp-loc">📍 South Bend, IN, USA</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Improved customer satisfaction forecasting accuracy by 25% using regression analysis in Predict IQ and Stats IQ (Qualtrics)</div>
-          <div class="exp-impact">Produced 5 Power BI dashboards covering competitor closures, new account trends, and consumer loan analysis</div>
-          <div class="exp-impact">Formulated strategies for 5 promotional campaigns, increasing customer engagement 18–20% across digital channels</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Marketing Analytics</span><span class="exp-tag">Regression Analysis</span><span class="exp-tag">Dashboarding</span><span class="exp-tag">Campaign Strategy</span><span class="exp-tag">Forecasting</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Power BI</span><span class="exp-tag tool">Qualtrics</span><span class="exp-tag tool">Predict IQ</span><span class="exp-tag tool">Stats IQ</span><span class="exp-tag tool">Excel</span></div></div>
         </div>
       </div>
     </div>
@@ -570,10 +566,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
         <div class="exp-head"><div class="exp-co">World Wildlife Fund (WWF)</div><div class="exp-date">May – Aug 2023</div></div>
         <div class="exp-role">Data Analytics & Reporting Intern</div>
         <div class="exp-loc">📍 Hanoi, Vietnam</div>
-        <div class="exp-impacts">
-          <div class="exp-impact">Streamlined reporting for WWF's Carbi initiative by creating 10+ reports and an internal site, improving data accessibility for 20+ field teams across Southeast Asia.</div>
-          <div class="exp-impact">Enhanced project tracking using Excel and Google Sheets dashboards, making conservation outcomes easier to monitor, visualize, and present.</div>
-          <div class="exp-impact">Boosted reporting efficiency by 30% through standardized templates and improved cross-office communication, enabling faster delivery of actionable insights.</div>
+        <div class="exp-meta">
+          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Data Reporting</span><span class="exp-tag">Project Tracking</span><span class="exp-tag">Template Standardization</span><span class="exp-tag">Cross-Team Coordination</span><span class="exp-tag">Conservation Analytics</span></div></div>
+          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Google Sheets</span><span class="exp-tag tool">Internal Site Content</span><span class="exp-tag tool">Reporting Templates</span><span class="exp-tag tool">Dashboards</span></div></div>
         </div>
       </div>
     </div>
