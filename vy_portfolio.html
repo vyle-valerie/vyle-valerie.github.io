@@ -83,28 +83,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .adv-st{font-size:9px;color:var(--coral);font-weight:700;margin-top:2px;}
 
 /* EXPERIENCE */
-.exp-list{display:flex;flex-direction:column;gap:12px;}
-.exp-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:22px 26px;display:grid;grid-template-columns:12px 1fr;gap:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);}
+.exp-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;position:relative;}
+.exp-card{background:#fff;border:1px solid #e8ddd4;border-radius:12px;transition:all 0.2s;opacity:0;transform:translateY(14px);display:block;}
 .exp-card.visible{opacity:1;transform:translateY(0);}
-.exp-card:hover{border-color:var(--coral);transform:translateX(4px);}
-.exp-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0;}
-.exp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:3px;}
-.exp-co{font-size:18px;font-weight:900;color:var(--dark);line-height:1.2;letter-spacing:-0.2px;}
-.exp-date{font-size:11px;font-weight:700;color:#9A8A7A;white-space:nowrap;letter-spacing:0.6px;text-transform:uppercase;}
-.exp-role{font-size:16px;font-weight:700;color:#6A5545;margin-bottom:4px;line-height:1.25;}
-.exp-loc{font-size:11px;color:var(--muted);margin-bottom:10px;}
-.exp-meta{display:grid;gap:10px;}
-.exp-row{display:grid;gap:6px;}
-.exp-row-title{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#9A7055;font-weight:800;}
-.exp-tags{display:flex;flex-wrap:wrap;gap:7px;}
-.exp-tag{background:#FFF7F1;border:0.5px solid #F2CCB8;color:#8A553D;font-size:11px;font-weight:600;padding:6px 11px;border-radius:999px;line-height:1.2;}
-.exp-tag.tool{background:#F4F8FB;border-color:#D6E4EE;color:#4E6A7E;}
+.exp-card:hover{border-color:#d9c4b3;transform:translateY(-2px);box-shadow:0 8px 20px rgba(18,10,4,0.08);}
+.exp-thumb{width:100%;height:122px;object-fit:contain;display:block;padding:10px;background:#faf7f3;}
+.exp-body{padding:14px 14px;display:flex;flex-direction:column;gap:5px;}
+.exp-kicker{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#9A7055;font-weight:800;}
+.exp-dot{display:none;}
+.exp-head{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.exp-co{font-size:15px;font-weight:800;color:var(--dark);line-height:1.25;letter-spacing:-0.1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.exp-date{font-size:11px;font-weight:700;color:#8C7361;white-space:nowrap;letter-spacing:0.4px;text-transform:uppercase;line-height:1.2;flex-shrink:0;}
+.exp-role{font-size:13px;font-weight:600;color:#7e6655;line-height:1.25;letter-spacing:0;}
+.exp-loc{font-size:13px;color:#6f5a4a;line-height:1.35;}
+.exp-highlight{font-size:12px;color:#4A3A2A;line-height:1.55;margin-top:2px;}
 
 /* PROJECTS */
 .proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
-.pf-btn{background:var(--card);border:0.5px solid var(--border);color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;padding:7px 15px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;}
+.pf-btn{background:var(--card);border:0.5px solid var(--border);color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;padding:4px 15px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;}
 .pf-btn:hover,.pf-btn.active{background:var(--coral);color:#fff;border-color:var(--coral);}
-.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start;}
 .proj-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:18px;transition:all 0.2s;opacity:0;transform:translateY(14px);display:flex;flex-direction:column;position:relative;}
 .proj-card.visible{opacity:1;transform:translateY(0);}
 .proj-card:hover{border-color:var(--coral);transform:translateY(-3px);box-shadow:0 8px 20px rgba(224,122,82,0.07);}
@@ -124,7 +122,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 .proj-name{font-size:12px;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:0;}
 .proj-tools{font-size:10px;color:var(--muted);line-height:1.5;}
 .proj-note{font-size:9px;color:#8A6A50;line-height:1.4;margin-top:6px;font-style:italic;}
-.proj-link{display:block;min-width:0;text-decoration:none;color:inherit;}
+.proj-link{display:block;min-width:0;width:100%;text-decoration:none;color:inherit;}
+.proj-link .proj-card{width:100%;}
+.proj-card[data-cat="analytics"] .proj-name{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  line-clamp:2;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+.proj-card[data-cat="analytics"] .proj-tools{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  line-clamp:3;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.proj-card[data-cat="analytics"] .proj-note{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  line-clamp:3;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
 
 /* SKILLS */
 .skills-dark{background:var(--dark);border-radius:20px;padding:40px;}
@@ -283,8 +303,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   .di-text{font-size:14px;line-height:1.6;}
   .c-stats{grid-template-columns:repeat(3,1fr);}
   .char-card{flex-direction:column;}
+  .exp-list{grid-template-columns:1fr;}
+  .exp-body{padding:12px 14px;}
   .exp-head{flex-direction:column;gap:4px;}
   .exp-date{white-space:normal;}
+  .exp-role{font-size:13px;}
+  .exp-loc{font-size:13px;}
 }
 
 @media(max-width:700px){
@@ -314,8 +338,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   .proj-card{padding:16px;}
   .proj-img{height:176px;}
   .proj-view{top:10px;right:10px;}
-  .exp-card{grid-template-columns:1fr;padding:18px;gap:10px;}
-  .exp-dot{display:none;}
+  .exp-card{display:block;}
+  .exp-body{padding:12px 12px 14px;}
+  .exp-co{font-size:17px;}
+  .exp-role{font-size:13px;}
+  .exp-loc{font-size:13px;}
+  .exp-highlight{font-size:11px;}
   .sq-card{flex:0 0 calc(100% - 28px);}
   .modal-overlay{padding:16px;}
   .modal-panel{padding:22px 18px;border-radius:18px;}
@@ -470,106 +498,66 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="exp-list">
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#A89080;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">APPE — Association for Practical & Professional Ethics</div><div class="exp-date">Feb 2026 – Present</div></div>
-        <div class="exp-role">Communications & Analytics Intern</div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">Association for Practical &amp; Professional Ethics</div><div class="exp-date">Feb 2026 - Present</div></div>
+        <div class="exp-role">Communications &amp; Analytics Intern</div>
         <div class="exp-loc">📍 Greencastle, IN, USA</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Membership Analytics</span><span class="exp-tag">Email Strategy</span><span class="exp-tag">Content Optimization</span><span class="exp-tag">Conference Insights</span><span class="exp-tag">Retention Analysis</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Google Sheets</span><span class="exp-tag tool">Survey Analysis</span><span class="exp-tag tool">Email Platforms</span><span class="exp-tag tool">Content Reporting</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#E07A52;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">iMin Technology / KiwiCloud</div><div class="exp-date">Aug – Dec 2025</div></div>
-        <div class="exp-role">Go-To-Market Strategy & Sales Enablement Analyst</div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">iMin Technology / KiwiCloud</div><div class="exp-date">Aug - Dec 2025</div></div>
+        <div class="exp-role">Go-To-Market Strategy &amp; Sales Enablement Analyst</div>
         <div class="exp-loc">📍 Singapore (Remote)</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">GTM Strategy</span><span class="exp-tag">Sales Enablement</span><span class="exp-tag">Pricing Modeling</span><span class="exp-tag">ICP Definition</span><span class="exp-tag">Competitive Analysis</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">PowerPoint</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">ROI/TCO Models</span><span class="exp-tag tool">Workflow Diagrams</span><span class="exp-tag tool">Training Content</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#E07A52;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">Pfizer</div><div class="exp-date">Jun – Aug 2025</div></div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">Pfizer</div><div class="exp-date">Jun - Aug 2025</div></div>
         <div class="exp-role">Global Commercial Analytics Intern</div>
         <div class="exp-loc">📍 New York, NY, USA</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Commercial Analytics</span><span class="exp-tag">Stakeholder Interviews</span><span class="exp-tag">Program Strategy</span><span class="exp-tag">Event Leadership</span><span class="exp-tag">Market Research</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">PowerPoint</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Framework Design</span><span class="exp-tag tool">Research Docs</span><span class="exp-tag tool">Planning Decks</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#5AA3C8;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">Central Indiana Corporate Partnership — Ascend Indiana</div><div class="exp-date">Jan – Apr 2025</div></div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">CICP - Ascend Indiana</div><div class="exp-date">Jan - Apr 2025</div></div>
         <div class="exp-role">Product Marketing Intern</div>
         <div class="exp-loc">📍 Indianapolis, IN, USA</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Product Marketing</span><span class="exp-tag">A/B Testing</span><span class="exp-tag">KPI Design</span><span class="exp-tag">User Analytics</span><span class="exp-tag">Dashboard Reporting</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Mixpanel</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Scraped Data Review</span><span class="exp-tag tool">Reporting Decks</span><span class="exp-tag tool">Dashboards</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#5AA3C8;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">HP Tech Ventures</div><div class="exp-date">Nov 2024 – Jan 2025</div></div>
-        <div class="exp-role">Deal Sourcing & Startup Analysis Intern</div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">HP Tech Ventures</div><div class="exp-date">Nov 2024 - Jan 2025</div></div>
+        <div class="exp-role">Deal Sourcing &amp; Startup Analysis Intern</div>
         <div class="exp-loc">📍 Remote</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Deal Sourcing</span><span class="exp-tag">Due Diligence</span><span class="exp-tag">Market Sizing</span><span class="exp-tag">Competitor Benchmarking</span><span class="exp-tag">Investment Memo Writing</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Crunchbase</span><span class="exp-tag tool">PitchBook</span><span class="exp-tag tool">AngelList</span><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Slides</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#5AA3C8;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">Hub of China</div><div class="exp-date">Sep – Dec 2024</div></div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">Hub of China</div><div class="exp-date">Sep - Dec 2024</div></div>
         <div class="exp-role">Market Research Analysis Intern</div>
         <div class="exp-loc">📍 London, UK</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Market Research</span><span class="exp-tag">Go-to-Market Insights</span><span class="exp-tag">Consumer Profiling</span><span class="exp-tag">Competitive Analysis</span><span class="exp-tag">Launch Strategy</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Research Decks</span><span class="exp-tag tool">Consumer Data</span><span class="exp-tag tool">Digital Analysis</span><span class="exp-tag tool">Presentation Docs</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#6AAB7B;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">1st Source Bank</div><div class="exp-date">May – Aug 2024</div></div>
-        <div class="exp-role">Marketing Analytics & IT Intern</div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">1st Source Bank</div><div class="exp-date">May - Aug 2024</div></div>
+        <div class="exp-role">Marketing Analytics &amp; IT Intern</div>
         <div class="exp-loc">📍 South Bend, IN, USA</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Marketing Analytics</span><span class="exp-tag">Regression Analysis</span><span class="exp-tag">Dashboarding</span><span class="exp-tag">Campaign Strategy</span><span class="exp-tag">Forecasting</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Power BI</span><span class="exp-tag tool">Qualtrics</span><span class="exp-tag tool">Predict IQ</span><span class="exp-tag tool">Stats IQ</span><span class="exp-tag tool">Excel</span></div></div>
-        </div>
       </div>
     </div>
 
     <div class="exp-card fade-in">
-      <div class="exp-dot" style="background:#6AAB7B;"></div>
-      <div>
-        <div class="exp-head"><div class="exp-co">World Wildlife Fund (WWF)</div><div class="exp-date">May – Aug 2023</div></div>
-        <div class="exp-role">Data Analytics & Reporting Intern</div>
+      <div class="exp-body">
+        <div class="exp-head"><div class="exp-co">World Wildlife Fund (WWF)</div><div class="exp-date">May - Aug 2023</div></div>
+        <div class="exp-role">Data Analytics &amp; Reporting Intern</div>
         <div class="exp-loc">📍 Hanoi, Vietnam</div>
-        <div class="exp-meta">
-          <div class="exp-row"><div class="exp-row-title">Skills</div><div class="exp-tags"><span class="exp-tag">Data Reporting</span><span class="exp-tag">Project Tracking</span><span class="exp-tag">Template Standardization</span><span class="exp-tag">Cross-Team Coordination</span><span class="exp-tag">Conservation Analytics</span></div></div>
-          <div class="exp-row"><div class="exp-row-title">Tools</div><div class="exp-tags"><span class="exp-tag tool">Excel</span><span class="exp-tag tool">Google Sheets</span><span class="exp-tag tool">Internal Site Content</span><span class="exp-tag tool">Reporting Templates</span><span class="exp-tag tool">Dashboards</span></div></div>
-        </div>
       </div>
     </div>
 
@@ -584,8 +572,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="s-title">What I've Built.</div>
   <div class="s-sub">22 projects spanning analytics, strategy, marketing, VC research, and media.<br>Click any bubble to view.</div>
   <div class="proj-filters">
-    <button class="pf-btn active" onclick="fp('analytics',this)">Analytics</button>
-    <button class="pf-btn" onclick="fp('marketing',this)">Marketing</button>
+    <button class="pf-btn active" onclick="fp('marketing',this)">Marketing</button>
+    <button class="pf-btn" onclick="fp('analytics',this)">Analytics</button>
     <button class="pf-btn" onclick="fp('vc',this)">Venture Capital</button>
     <button class="pf-btn" id="media-filter-btn" onclick="fp('media',this)">Photos, Media & Design</button>
     <button class="pf-btn" onclick="fp('strategy',this)">Strategy</button>
@@ -593,29 +581,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   </div>
   <div class="proj-grid" id="pgrid">
     <!-- ANALYTICS -->
-    <a class="proj-link" href="https://drive.google.com/drive/folders/1k2CovChWSvZJQLnd28FNlFRS3cnAOQbm?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><span class="proj-view">View ↗</span><img class="proj-img" src="P2P%20platform.jpg" alt="Handshake graphic representing peer-to-peer lending"><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">End-to-end credit risk pipeline: preprocessing, feature engineering, OLS baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1bH4WbOAE2II5RIBPVEDVYXPL-dNgmgau/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><span class="proj-view">View ↗</span><img class="proj-img" src="P2P%20platform.jpg" alt="Handshake graphic representing peer-to-peer lending"><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">Credit risk pipeline: preprocessing, feature engineering, baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1HvOAKhkCrOdGQFgnJQWOENlhdTBgaenR/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Men%20%26%20Women%20Education.webp" alt="Graduation illustration for education earnings analysis"><div class="proj-name">Does Education Pay Off Equally for Men &amp; Women?</div><div class="proj-tools">Stata · OLS Regression · IPUMS CPS Data · Excel · FRED Data · Interaction Terms</div><div class="proj-note">OLS regression on 3,795 obs — found men earn 28.9% more, but the gap narrows 1.46% per education year and closes entirely after ~20 years of schooling.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/1QJNBvyoLGuZP5P6QPIE80CHmjioS32xj?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="DoorDash%20.jpeg" alt="DoorDash logo shown on a phone screen"><div class="proj-name">DoorDash Case — RFM Segmentation &amp; Response Analysis</div><div class="proj-tools">Python · pandas · NumPy · seaborn · matplotlib · RFM Quintiles · Campaign Response Modeling</div><div class="proj-note">Built recency-frequency-monetary segments and visualized response patterns to identify higher-value customer groups for targeting.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/16rjlhlZ2nTagjxdYrM66-JE-9mNmMJAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Housing%20Price%20Prediction.webp" alt="Two people viewing home price movements on mobile screens"><div class="proj-name">Housing Price Prediction — Linear Regression Modeling</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Linear Regression · Excel</div><div class="proj-note">Built and compared regression models with preprocessing, imputation, dummy encoding, and performance checks using RMSE and R-squared.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/1Zqq-nEyXZNW0IQ-Zp6WpaV3eBjPvhBvS?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="IKEA.jpg" alt="IKEA message mockup on a phone screen"><div class="proj-name">IKEA Case — Personalized Messaging Profit Optimization</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · seaborn · matplotlib · Profit Simulation</div><div class="proj-note">Modeled category-level response and expected profit to compare personalized vs. fixed campaign strategies across IKEA product departments.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1Si5E3vQZICyu2U9mTJq6jZVJ0hDV4sFX/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="DoorDash%20.jpeg" alt="DoorDash logo shown on a phone screen"><div class="proj-name">DoorDash Case — RFM Segmentation &amp; Response Analysis</div><div class="proj-tools">Python · pandas · NumPy · seaborn · matplotlib · RFM Quintiles · Campaign Response Modeling</div><div class="proj-note">Built recency-frequency-monetary segments and visualized response patterns to identify higher-value customer groups for targeting.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1AHeLVbw8ad8QA20-4rKY23OtDBPshkZZ/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Housing%20Price%20Prediction.webp" alt="Two people viewing home price movements on mobile screens"><div class="proj-name">Housing Price Prediction — Linear Regression Modeling</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Linear Regression · Excel</div><div class="proj-note">Built and compared regression models with preprocessing, imputation, dummy encoding, and performance checks using RMSE and R-squared.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/14vOT2ZawfeKNCvHgLXu8JlIMQK-ebTFb/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="IKEA.jpg" alt="IKEA message mockup on a phone screen"><div class="proj-name">IKEA Case — Personalized Messaging Profit Optimization</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · seaborn · matplotlib · Profit Simulation</div><div class="proj-note">Modeled response and profit to compare personalized vs. fixed campaign strategies across IKEA product departments.</div></div></a>
     <!-- DESIGN -->
+    <a class="proj-link" href="https://thedepauw.com/staff_name/mai-vy-le/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="the-depauw.jpg" alt="The DePauw Newspaper"><div class="proj-cat">Media</div><div class="proj-name">The DePauw Newspaper</div><div class="proj-tools">Editorial Leadership · Copywriting · Production Management</div><div class="proj-note">Wrote and edited campus stories while coordinating production timelines across the editorial workflow.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/drive/folders/1ueoC5B4TKXxfVpEhWqhSezu6yB1ESlpM?usp=share_link" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img proj-img-social" src="Social%20Media%20Designs.png" alt="Social media design thumbnail"><div class="proj-cat">Design</div><div class="proj-name">Social Media Designs — Beyond the Green Coaching · DePauw Marketing Club · Grab Before Grad</div><div class="proj-tools">Canva · Content Strategy · Brand Voice · Visual Design</div></div></a>
-    <a class="proj-link" href="https://docs.google.com/document/d/1PoNtRyHCt1fuh1YTT5YABk4_tK8-EvxtiE6AApyz1jk/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="beyond-green-coaching.png" alt="Beyond the Green Coaching website hero"><div class="proj-cat">Writing</div><div class="proj-name">Beyond the Green Coaching — 20 Published LinkedIn &amp; Instagram Posts</div><div class="proj-tools">Copywriting · Financial Literacy · Content Strategy · Brand Voice</div><div class="proj-note">Published finance-focused social content tailored to audience pain points and a consistent brand voice.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1JttpVMBJa7bfvgmOn770xK5vl20N0x-W/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="beyond-green-coaching.png" alt="Beyond the Green Coaching website hero"><div class="proj-cat">Writing</div><div class="proj-name">Beyond the Green Coaching — 20 Published LinkedIn &amp; Instagram Posts</div><div class="proj-tools">Copywriting · Financial Literacy · Content Strategy · Brand Voice</div><div class="proj-note">Published finance-focused social content tailored to audience pain points and a consistent brand voice.</div></div></a>
     <!-- MARKETING -->
     <a class="proj-link" href="https://drive.google.com/file/d/17mHEeFAnka1jdcw8KlcV-7JwtDDpTGgY/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="Popular%20Brands.png" alt="Collage of popular consumer brands and products"><div class="proj-cat">Marketing</div><div class="proj-name">What Makes Brands Popular?</div><div class="proj-tools">Brand Analysis · Social Media Analytics · Consumer Psychology · EMV Modeling · Revenue Trends</div><div class="proj-note">Compared breakout brands to identify repeatable growth patterns, pricing signals, and social traction drivers.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/file/d/1INbdccPBiNMKX8wxNdg5vYHpm94AoBES/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="NYT.avif" alt="Lifestyle collage featuring New York Times contexts"><div class="proj-cat">Marketing</div><div class="proj-name">NYT Advertising &amp; Audience Insights — Sample Case Study</div><div class="proj-tools">Audience Segmentation · Ad Strategy · Media Analytics · Consumer Research</div><div class="proj-note">Analyzed audience behavior to shape ad strategy, segment priorities, and media performance decisions.</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1Avd5FO-g1WVL5yk12oFz5kAPWkSyN6dO/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="NYT.avif" alt="Lifestyle collage featuring New York Times contexts"><div class="proj-cat">Marketing</div><div class="proj-name">NYT Advertising &amp; Audience Insights — Sample Case Study</div><div class="proj-tools">Audience Segmentation · Ad Strategy · Media Analytics · Consumer Research</div><div class="proj-note">Analyzed audience behavior to shape ad strategy, segment priorities, and media performance decisions.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1QW4sWBG1EY0NYUys5CD81bUiYnPR104Q/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="marketing"><img class="proj-img" src="Ascend%20IN.avif" alt="Ascend Indiana marketing visual"><div class="proj-cat">Marketing</div><div class="proj-name">Product Marketing Vision — Empowering Indiana with Ascend</div><div class="proj-tools">GTM Strategy · User Persona Development · Talent Branding · Workforce Growth Campaigns</div><div class="proj-note">Built a GTM direction for a job-matching platform connecting Indiana talent with employers.</div></div></a>
     <!-- MEDIA -->
-    <a class="proj-link" href="https://thedepauw.com/staff_name/mai-vy-le/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="the-depauw.jpg" alt="The DePauw Newspaper"><div class="proj-cat">Media</div><div class="proj-name">The DePauw Newspaper</div><div class="proj-tools">Editorial Leadership · Copywriting · Production Management</div><div class="proj-note">Wrote and edited campus stories while coordinating production timelines across the editorial workflow.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1JWJ0QalrWg70CSueigi1ymmUqZbdSQAn/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img proj-img-kiwi" src="Untitled%20design.png" alt="KiwiCloud mascot illustration"><div class="proj-cat">Design</div><div class="proj-name">KiwiCloud Poster Design</div><div class="proj-tools">Poster Design · Brand Messaging · Visual Layout</div><div class="proj-note">Designed a campaign poster that translates brand story into clear, high-impact visual messaging.</div></div></a>
     <!-- PHOTOGRAPHY -->
     <a class="proj-link" href="https://drive.google.com/drive/folders/15oC86UnfC0uolUmvuwnSWQZKykst2H3v?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="Near%20Sequoia%20NP.jpg" alt="Travel photography near Sequoia with rainbow"><div class="proj-cat">Photography</div><div class="proj-name">My Favorite Shots — Travel Photography</div><div class="proj-tools">iPhone · Travel · Landscape · Candid</div><div class="proj-note">Captured candid travel scenes and city moments through my iPhone-first visual storytelling style.</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/12iF0ablh1uXzwnIeRmrc5BMLIRKcYTjE?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="media"><img class="proj-img" src="Twinned%20Rainbow.jpg" alt="Valerie in nature with a twin rainbow"><div class="proj-cat">Photography</div><div class="proj-name">My Favorite Photos of Me in Nature</div><div class="proj-tools">Nature · Portraits · Outdoors · Travel</div><div class="proj-note">Edited by me, with adjustments to lighting, color, and tone to highlight natural mood and composition.</div></div></a>
     <!-- STARTUP & ENTREPRENEURSHIP -->
     <a class="proj-link" href="https://www.instagram.com/grab_before_grad26/" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="startup"><img class="proj-img proj-img-gbg" src="Social%20Media%20Designs%20-%20Valerie%20(Vy)%20Le/Grab%20before%20Grad/@grab_before_grad26.png" alt="Grab Before Grad illustrated promotional poster"><div class="proj-cat">Startup &amp; Entrepreneurship</div><div class="proj-name">Grab Before Grad — Multi-Vendor Resale Platform</div><div class="proj-tools">Platform Launch · Growth Marketing · Ops · Events (500+ attendees)</div></div></a>
     <!-- STRATEGY -->
     <a class="proj-link" href="https://drive.google.com/file/d/1-akdfZjHtgd8MVA4NdQ1r-f2eURSjNd1/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Adobe.jpeg" alt="Adobe-themed illustration with a robot painting at an easel"><div class="proj-cat">Strategy</div><div class="proj-name">Adobe — Enterprise Architecture Analyst Case Study</div><div class="proj-tools">Enterprise Architecture · Process Design · Systems Thinking · Strategic Roadmapping</div></div></a>
-    <a class="proj-link" href="https://drive.google.com/drive/folders/1xnfTINWpkHzT_sdTyZCAVdVG-3fq4dAz?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Lululemon.jpg" alt="Lululemon storefront photo"><div class="proj-cat">Strategy</div><div class="proj-name">Lululemon — Brand Strategy &amp; Business Case Analysis</div><div class="proj-tools">Brand Strategy · Competitive Analysis · Business Case · Market Positioning</div></div></a>
+    <a class="proj-link" href="https://drive.google.com/file/d/1bOCRDt0XaCeY2bQtMdyFKzMHhN1B0EJp/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="Lululemon.jpg" alt="Lululemon storefront photo"><div class="proj-cat">Strategy</div><div class="proj-name">Lululemon — Brand Strategy &amp; Business Case Analysis</div><div class="proj-tools">Brand Strategy · Competitive Analysis · Business Case · Market Positioning</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1hHbYTQeWT-T8dDhuNZep8zmsOA7pdlzT/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img" src="IHDA.webp" alt="Family standing in front of a house protected by large hands"><div class="proj-cat">Strategy</div><div class="proj-name">Affordable Housing Strategy — IHDA Asset Management</div><div class="proj-tools">Housing Policy · Financial Analysis · Data Visualization · Community Impact Framework</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1mCFvhDpGc7IlRordSzNQlbSeQuYE87g5/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="strategy"><img class="proj-img proj-img-uk" src="UK%20Health.jpg" alt="Illustration of mental healthcare support and brain health"><div class="proj-cat">Strategy</div><div class="proj-name">Mental Health Policy Framework — UK Health Economics Analysis</div><div class="proj-tools">Health Economics · Policy Design · Quantitative Analysis · Evidence-Based Recommendations</div><div class="proj-note">ECN369 capstone: Addressing mental health disorders through early intervention, stigma reduction, and digital health integration using the Grossman model.</div></div></a>
     <!-- VENTURE CAPITAL -->
@@ -642,13 +629,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
     <div class="sg">
       <div class="sg-t">Business & Strategy</div>
       <div class="chips">
-        <span class="chip hot">GTM Strategy</span><span class="chip hot">Market Research</span><span class="chip hot">Product Analytics</span><span class="chip">Consumer Insights</span><span class="chip">Competitor Benchmarking</span><span class="chip">Market Sizing</span><span class="chip">Sales Enablement</span><span class="chip">CRM Analytics</span><span class="chip">Startup Due Diligence</span><span class="chip">Stakeholder Management</span><span class="chip">Conversion Optimization</span>
+        <span class="chip hot">GTM Strategy</span><span class="chip hot">Market Research</span><span class="chip hot">Product Analytics</span><span class="chip">Consumer Insights</span><span class="chip">Competitor Benchmarking</span><span class="chip">Market Sizing</span><span class="chip">Sales Enablement</span><span class="chip">CRM Analytics</span><span class="chip">Startup Due Diligence</span><span class="chip">Stakeholder Management</span>
       </div>
     </div>
     <div class="sg">
       <div class="sg-t">Tools & Platforms</div>
       <div class="chips">
-        <span class="chip">Mixpanel</span><span class="chip">Google Analytics</span><span class="chip">Salesforce</span><span class="chip">SharePoint</span><span class="chip">Cognos</span><span class="chip">Qualtrics</span><span class="chip">Bloomberg Terminal</span><span class="chip">Microsoft Office (Advanced)</span><span class="chip">Canva</span><span class="chip">Crunchbase / PitchBook / AngelList</span><span class="chip">Daybreak Analytics</span><span class="chip">Meta Business</span><span class="chip">Vectorworks</span>
+        <span class="chip">Mixpanel</span><span class="chip">Google Analytics</span><span class="chip">Salesforce</span><span class="chip">SharePoint</span><span class="chip">Cognos</span><span class="chip">Qualtrics</span><span class="chip">Bloomberg Terminal</span><span class="chip">Microsoft Office (Advanced)</span><span class="chip">Canva</span><span class="chip">Crunchbase / PitchBook / AngelList</span><span class="chip">Daybreak Analytics</span><span class="chip">Meta Business</span>
       </div>
     </div>
     <div class="sg">
@@ -814,11 +801,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   <div class="c-sub">"I give great coffee chats. Ask me anything — I'll give you a real answer, not a rehearsed one."</div>
   <div class="topics-label">Pick a topic and let's go:</div>
   <div class="topics">
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🚀 My startup origin story" class="topic">🚀 My startup origin story</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 📊 My wildest data project" class="topic">📊 My wildest data project</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🌍 What living in 6 countries actually teaches you" class="topic">🌍 What living in 6 countries actually teaches you</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 💼 Breaking into analytics without a CS degree" class="topic">💼 Breaking into analytics without a CS degree</a>
-    <a href="mailto:lemaivy2004@gmail.com?subject=Hi Valerie, let's talk about 🛣️ Best U.S. road trip I've done (ranked)" class="topic">🛣️ Best U.S. road trip I've done (ranked)</a>
+    <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" rel="noopener noreferrer" class="topic">🚀 My startup origin story</a>
+    <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" rel="noopener noreferrer" class="topic">📊 My wildest data project</a>
+    <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" rel="noopener noreferrer" class="topic">🌍 What living in 6 countries actually teaches you</a>
+    <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" rel="noopener noreferrer" class="topic">💼 Breaking into analytics without a CS degree</a>
+    <a href="https://www.linkedin.com/in/mai-vy-le/" target="_blank" rel="noopener noreferrer" class="topic">🛣️ Best U.S. road trip I've done (ranked)</a>
   </div>
   <a href="https://calendly.com/lemaivy2004/30min" target="_blank" class="coffee-cta">☕ &nbsp;Book a Coffee Chat</a>
   <div class="social-row">
@@ -905,7 +892,7 @@ function goToMediaProjects(){
   fp('media', document.getElementById('media-filter-btn'));
 }
 
-let currentProjectCategory = 'analytics';
+let currentProjectCategory = 'marketing';
 
 function syncCategoryCardHeights(category){
   const cards = Array.from(document.querySelectorAll('.proj-card[data-cat="' + category + '"]'))
@@ -1126,7 +1113,7 @@ window.addEventListener('resize', () => {
 syncHeroTopOffset();
 updateActiveNav();
 setupProjectCardContent();
-fp('analytics', document.querySelector('.proj-filters .pf-btn'));
+fp('marketing', document.querySelector(".proj-filters .pf-btn[onclick*=\"'marketing'\"]"));
 </script>
 </body>
 </html>
