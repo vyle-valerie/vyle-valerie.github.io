@@ -651,7 +651,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
 <div class="sec-inner">
   <div class="s-label">🧠 Problem Solving Mode</div>
   <div class="s-title">What I've Built.</div>
-  <div class="s-sub">22 projects spanning analytics, strategy, marketing, VC research, and media.<br>Click any bubble to view.</div>
+  <div class="s-sub">23 projects spanning analytics, strategy, marketing, VC research, and media.<br>Click any bubble to view.</div>
   <div class="proj-filters">
     <button class="pf-btn active" onclick="fp('marketing',this)">Marketing</button>
     <button class="pf-btn" onclick="fp('analytics',this)">Analytics</button>
@@ -662,6 +662,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,10,4,0.97
   </div>
   <div class="proj-grid" id="pgrid">
     <!-- ANALYTICS -->
+    <a class="proj-link" href="https://drive.google.com/file/d/1QpGIiYboHR8s1IEgsMJqDBzdvdiOUjCG/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><span class="proj-view">View ↗</span><img class="proj-img" src="virtual conference.jpg" alt="Illustration of a virtual group meeting with multiple participants"><div class="proj-name">APPE 2026 Virtual Conference Engagement Analysis</div><div class="proj-tools">Python · pandas · NumPy · Data Visualization · Exploratory Data Analysis</div><div class="proj-note">Analyzed virtual-meeting interaction patterns to surface participation trends and generate actionable communication insights.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1bH4WbOAE2II5RIBPVEDVYXPL-dNgmgau/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><span class="proj-view">View ↗</span><img class="proj-img" src="P2P%20platform.jpg" alt="Handshake graphic representing peer-to-peer lending"><div class="proj-name">Predicting Default Risk on Peer-to-Peer Lending Platforms</div><div class="proj-tools">Python · pandas · NumPy · statsmodels · scikit-learn · Logistic Regression · Random Forest · HistGradientBoosting</div><div class="proj-note">Credit risk pipeline: preprocessing, feature engineering, baseline, and ensemble models to predict charged-off/default outcomes.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1HvOAKhkCrOdGQFgnJQWOENlhdTBgaenR/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="Men%20%26%20Women%20Education.webp" alt="Graduation illustration for education earnings analysis"><div class="proj-name">Does Education Pay Off Equally for Men &amp; Women?</div><div class="proj-tools">Stata · OLS Regression · IPUMS CPS Data · Excel · FRED Data · Interaction Terms</div><div class="proj-note">OLS regression on 3,795 obs — found men earn 28.9% more, but the gap narrows 1.46% per education year and closes entirely after ~20 years of schooling.</div></div></a>
     <a class="proj-link" href="https://drive.google.com/file/d/1Si5E3vQZICyu2U9mTJq6jZVJ0hDV4sFX/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="proj-card fade-in" data-cat="analytics"><img class="proj-img" src="DoorDash%20.jpeg" alt="DoorDash logo shown on a phone screen"><div class="proj-name">DoorDash Case — RFM Segmentation &amp; Response Analysis</div><div class="proj-tools">Python · pandas · NumPy · seaborn · matplotlib · RFM Quintiles · Campaign Response Modeling</div><div class="proj-note">Built recency-frequency-monetary segments and visualized response patterns to identify higher-value customer groups for targeting.</div></div></a>
@@ -1022,7 +1023,7 @@ function fp(cat,btn){
     }
   });
 
-  if(cat === 'marketing' || cat === 'media') syncCategoryCardHeights(cat);
+  if(cat === 'marketing' || cat === 'media' || cat === 'analytics') syncCategoryCardHeights(cat);
 }
 
 // Intersection observer for fade-ins
@@ -1189,7 +1190,7 @@ window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('resize', () => {
   syncHeroTopOffset();
   updateActiveNav();
-  if(currentProjectCategory === 'marketing' || currentProjectCategory === 'media') syncCategoryCardHeights(currentProjectCategory);
+  if(currentProjectCategory === 'marketing' || currentProjectCategory === 'media' || currentProjectCategory === 'analytics') syncCategoryCardHeights(currentProjectCategory);
 });
 syncHeroTopOffset();
 updateActiveNav();
