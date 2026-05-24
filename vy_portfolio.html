@@ -1164,7 +1164,7 @@ function updateActiveNav(){
     const el = document.getElementById(id);
     if(!el) return;
     const top = el.getBoundingClientRect().top;
-    if(top - anchorLine <= 2) current = id;
+    if(top - anchorLine <= 40) current = id;
   });
   setActiveNav(current);
 }
@@ -1258,6 +1258,7 @@ expOverlay.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && expOverlay.classList.contains('visible')) { expOverlay.classList.remove('visible'); document.body.style.overflow = ''; }
 });
+
 </script>
 </body>
 </html>
